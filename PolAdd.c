@@ -75,15 +75,6 @@ void main()
         }
     }
 
-    // printing the array of polynomial equations
-    /*for (int i = 0; i < totalTerms; i++)
-    {
-        for (int j = 0; j < 2; j++)
-        {
-            printf("%d ", mainPol[i][j]);
-        }
-        printf("\n");
-    }*/
     printf("\n");
 
     for (int i = 0; i < totalTerms; i++)
@@ -99,15 +90,6 @@ void main()
             }
         }
     }
-
-    /*for (int i = 0; i < totalTerms; i++)
-    {
-        for (int j = 0; j < 2; j++)
-        {
-            printf("%d ", mainPol[i][j]);
-        }
-        printf("\n");
-    }*/
 
     for (int i = 0; i < totalTerms - 1; i++)
     {
@@ -126,14 +108,7 @@ void main()
         }
     }
     printf("\n");
-    /*for (int i = 0; i < totalTerms; i++)
-    {
-        for (int j = 0; j < 2; j++)
-        {
-            printf("%d ", mainPol[i][j]);
-        }
-        printf("\n");
-    }*/
+
     while (mainPol[totalTerms - 1][0] == 0)
     {
         totalTerms--;
