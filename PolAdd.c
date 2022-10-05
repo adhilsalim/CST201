@@ -57,6 +57,24 @@ void main()
         // k++;
     }
 
+    // sorting mainPol array
+    for (int i = 0; i < totalTerms - 1; i++)
+    {
+        for (int j = 0; j < totalTerms - i - 1; j++)
+        {
+            if (mainPol[j][1] < mainPol[j + 1][1])
+            {
+                int temp = mainPol[j][1];
+                mainPol[j][1] = mainPol[j + 1][1];
+                mainPol[j + 1][1] = temp;
+
+                temp = mainPol[j][0];
+                mainPol[j][0] = mainPol[j + 1][0];
+                mainPol[j + 1][0] = temp;
+            }
+        }
+    }
+
     // printing the array of polynomial equations
     for (int i = 0; i < totalTerms; i++)
     {
