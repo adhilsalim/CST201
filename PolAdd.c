@@ -84,4 +84,54 @@ void main()
         }
         printf("\n");
     }
+    printf("\n");
+
+    for (int i = 0; i < totalTerms; i++)
+    {
+
+        for (int j = i + 1; j < totalTerms; j++)
+        {
+            if (mainPol[i][1] == mainPol[j][1])
+            {
+                mainPol[i][0] += mainPol[j][0];
+                mainPol[j][0] = 0;
+                mainPol[j][1] = 0;
+            }
+        }
+    }
+
+    for (int i = 0; i < totalTerms; i++)
+    {
+        for (int j = 0; j < 2; j++)
+        {
+            printf("%d ", mainPol[i][j]);
+        }
+        printf("\n");
+    }
+
+    for (int i = 0; i < totalTerms - 1; i++)
+    {
+        for (int j = 0; j < totalTerms - i - 1; j++)
+        {
+            if (mainPol[j][1] < mainPol[j + 1][1])
+            {
+                int temp = mainPol[j][1];
+                mainPol[j][1] = mainPol[j + 1][1];
+                mainPol[j + 1][1] = temp;
+
+                temp = mainPol[j][0];
+                mainPol[j][0] = mainPol[j + 1][0];
+                mainPol[j + 1][0] = temp;
+            }
+        }
+    }
+    printf("\n");
+    for (int i = 0; i < totalTerms; i++)
+    {
+        for (int j = 0; j < 2; j++)
+        {
+            printf("%d ", mainPol[i][j]);
+        }
+        printf("\n");
+    }
 }
