@@ -1,7 +1,7 @@
 /*
 name: PolAdd
 desc: This program performs addition on polynomial expression
-author: Adhil Salimmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm
+author: Adhil Salim
 date: 05/10/2022 (last modified)
 */
 
