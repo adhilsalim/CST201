@@ -8,7 +8,7 @@ date: 05/10/2022 (last modified)
 #include <stdio.h>
 
 // function for bubble sort
-int BubbleSortArray(int *array[][2], int n)
+void BubbleSortArray(int array[][2], int n)
 {
     for (int i = 0; i < n - 1; i++)
     {
@@ -26,7 +26,6 @@ int BubbleSortArray(int *array[][2], int n)
             }
         }
     }
-    return 1;
 }
 
 void main()
@@ -80,7 +79,7 @@ void main()
     }
 
     // sorting mainPol array
-    bubbleSortArray(mainPol, totalTerms);
+    BubbleSortArray(mainPol, totalTerms);
 
     // printing the array of polynomial equations
     for (int i = 0; i < totalTerms; i++)
@@ -117,7 +116,7 @@ void main()
     }
 
     // sorting mainPol array
-    bubbleSortArray(mainPol, totalTerms);
+    BubbleSortArray(mainPol, totalTerms);
     printf("\n");
 
     // printing the array of polynomial equations
