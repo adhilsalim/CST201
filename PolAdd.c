@@ -1,9 +1,8 @@
 /*
 name: PolAdd
 desc: This program performs addition on polynomial expression
-author: Adhil Salim, Abhishek P Anil
+author: Adhil Salim, Abhishek P Anil, Advaith Manoj
 date: 05/10/2022 (last modified)
-hello how are you ?
 */
 
 #include <stdio.h>
