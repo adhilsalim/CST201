@@ -7,6 +7,28 @@ date: 05/10/2022 (last modified)
 
 #include <stdio.h>
 
+// function for bubble sort
+int BubbleSortArray(int *array[][2], int n)
+{
+    for (int i = 0; i < n - 1; i++)
+    {
+        for (int j = 0; j < n - i - 1; j++)
+        {
+            if (array[j][1] < array[j + 1][1])
+            {
+                int temp = array[j][1];
+                array[j][1] = array[j + 1][1];
+                array[j + 1][1] = temp;
+
+                temp = array[j][0];
+                array[j][0] = array[j + 1][0];
+                array[j + 1][0] = temp;
+            }
+        }
+    }
+    return 1;
+}
+
 void main()
 {
     int totalPolEqns = 0, totalTerms = 0;
@@ -58,22 +80,7 @@ void main()
     }
 
     // sorting mainPol array
-    for (int i = 0; i < totalTerms - 1; i++)
-    {
-        for (int j = 0; j < totalTerms - i - 1; j++)
-        {
-            if (mainPol[j][1] < mainPol[j + 1][1])
-            {
-                int temp = mainPol[j][1];
-                mainPol[j][1] = mainPol[j + 1][1];
-                mainPol[j + 1][1] = temp;
-
-                temp = mainPol[j][0];
-                mainPol[j][0] = mainPol[j + 1][0];
-                mainPol[j + 1][0] = temp;
-            }
-        }
-    }
+    bubbleSortArray(mainPol, totalTerms);
 
     // printing the array of polynomial equations
     for (int i = 0; i < totalTerms; i++)
@@ -88,7 +95,6 @@ void main()
 
     for (int i = 0; i < totalTerms; i++)
     {
-
         for (int j = i + 1; j < totalTerms; j++)
         {
             if (mainPol[i][1] == mainPol[j][1])
@@ -100,6 +106,7 @@ void main()
         }
     }
 
+    // printing the array of polynomial equations
     for (int i = 0; i < totalTerms; i++)
     {
         for (int j = 0; j < 2; j++)
@@ -109,23 +116,11 @@ void main()
         printf("\n");
     }
 
-    for (int i = 0; i < totalTerms - 1; i++)
-    {
-        for (int j = 0; j < totalTerms - i - 1; j++)
-        {
-            if (mainPol[j][1] < mainPol[j + 1][1])
-            {
-                int temp = mainPol[j][1];
-                mainPol[j][1] = mainPol[j + 1][1];
-                mainPol[j + 1][1] = temp;
-
-                temp = mainPol[j][0];
-                mainPol[j][0] = mainPol[j + 1][0];
-                mainPol[j + 1][0] = temp;
-            }
-        }
-    }
+    // sorting mainPol array
+    bubbleSortArray(mainPol, totalTerms);
     printf("\n");
+
+    // printing the array of polynomial equations
     for (int i = 0; i < totalTerms; i++)
     {
         for (int j = 0; j < 2; j++)
