@@ -1,0 +1,2 @@
+#ignoring exe files in a directory
+*.exe
