@@ -32,27 +32,29 @@ void main()
     int mainPol[totalTerms][2];
 
     // getting the coefficient and exponent of each term of all polynomial equations
-    for (int i = 0; i < totalPolEqns; i++)
+    for (int i = 0, k = 0; i < totalPolEqns; i++)
     {
 
         while (totalTermsInEachPol[i] != 0)
         {
             // log 1
-            printf("\nLOG:   TOTAL-TERMS-IN-EACH-POL[%d]: %d\n", i, totalTermsInEachPol[i]);
+            // printf("\nLOG:   TOTAL-TERMS-IN-EACH-POL[%d]: %d\n", i, totalTermsInEachPol[i]);
 
             printf("Enter the coefficient of term %d of polynomial equation %d: ", totalTermsInEachPol[i], i + 1);
-            scanf("%d", &mainPol[i][0]);
+            scanf("%d", &mainPol[k][0]);
 
             // log 2
-            printf("LOG:   MAIN-POL[%d][0]: %d\n", i, mainPol[i][0]);
+            // printf("LOG:   MAIN-POL[%d][0]: %d\n", i, mainPol[i][0]);
 
             printf("Enter the exponent of term %d of polynomial equation %d: ", totalTermsInEachPol[i], i + 1);
-            scanf("%d", &mainPol[i][1]);
+            scanf("%d", &mainPol[k][1]);
 
             // log 3
-            printf("LOG:   MAIN-POL[%d][1]: %d", i, mainPol[i][0]);
+            // printf("LOG:   MAIN-POL[%d][1]: %d", i, mainPol[i][1]);
             totalTermsInEachPol[i]--;
+            k++;
         }
+        // k++;
     }
 
     // printing the array of polynomial equations
