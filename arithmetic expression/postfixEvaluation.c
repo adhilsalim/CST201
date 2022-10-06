@@ -1,7 +1,16 @@
 /*
-AUTH: ADHIL SALIM
+Program to find postfix of an arithmetic expression
 
-while making changes use comments with username.
+AUTH: ADHIL SALIM
+CONTRIBUTORS:
+
+READ ME:
+ (1) to find existing issues search for [ISSUE]
+ (2) to mark an issue follow the format [ISSUE #count] - explain the issue,
+     if the the last issue is #3 then the next issue will be #4
+ (3) if an issue is resolved then [ISSUE #count][RESOLVED]
+ (4) while making changes use your username and comment about the change in few sentences.
+     eg: [ADHIL SALIM] added a function to check if the stack is empty
 */
 
 #include <stdio.h>
@@ -61,6 +70,8 @@ void main()
     scanf("%s", expression);
 
     // printf("The expression is: %s\n", expression);
+
+    //[ISSUE #1] - printing '(' and ')' in the expression
 
     // looping through the expression
     for (int i = 0; i < totalChars; i++)
