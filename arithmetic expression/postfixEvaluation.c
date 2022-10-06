@@ -7,10 +7,10 @@ CONTRIBUTORS:
 READ ME:
  (1) to find existing issues search for [ISSUE]
  (2) to mark an issue follow the format [ISSUE #count] - explain the issue,
-     if the the last issue is #3 then the next issue will be #4
+     if the the last issue is #3 then the next issue will be #4, also don't forget to open an issue on github
  (3) if an issue is resolved then [ISSUE #count][RESOLVED]
  (4) while making changes use your username and comment about the change in few sentences.
-     eg: [ADHIL SALIM] added a function to check if the stack is empty
+     eg: [USERNAME] added a function to check if the stack is empty
 */
 
 #include <stdio.h>
