@@ -6,7 +6,7 @@ This program is used to find the postfix arithmetic expression
 ![GitHub followers](https://img.shields.io/github/followers/adhilsalim?label=Follow&style=social) 
 
 # Features:
- 1. Uses functions to validate operator and to obtain order
+ 1. Uses function to validate operator and to obtain order
 
 
 # How to Install and Run the Project:
