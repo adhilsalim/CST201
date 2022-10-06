@@ -8,7 +8,7 @@ This program perform addition of mulitple polynomial equations
 # Features:
  1. Performs addition of more than two polynomial equations
  2. No limit on number of terms
- 3. Uses one array
+ 3. Uses one main array
 
 # How to Install and Run the Project:
 run `PolAdd.c`
