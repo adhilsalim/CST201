@@ -1,5 +1,7 @@
 /*
 AUTH: ADHIL SALIM
+
+while making changes use comments with username.
 */
 
 #include <stdio.h>
