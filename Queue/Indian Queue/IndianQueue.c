@@ -3,8 +3,11 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+int endPosition = -1;
+
 void insertion(int this, int to, int in[])
 {
+    // for (int i = endPosition)
 }
 
 void deletion(int from)
@@ -21,33 +24,37 @@ void display(int array[])
 
 void main()
 {
-    int queueSize, operationNumber, element, position = -1, jumpPosition = -1, endPosition = -1;
+    int queueSize, operationNumber, element, position = -1, jumpPosition = -1;
 
     printf("[INDIAN QUEUE]\n\n");
     printf("[CREATING QUEUE]\n");
     printf("Enter the size of the queue: ");
     scanf("%d", &queueSize);
 
-    int queue[queueSize];
+    int queue[queueSize]; // creating the queue
 
     printf("[QUEUE CREATED WITH SIZE %d]\n", queueSize);
     printf("\nEnter number of elements in queue: ");
-    scanf("%d", &endPosition);
+    scanf("%d", &endPosition); // taking the number of elements in the queue
+    printf("\n");
 
+    // checking overflow conidition
     if (endPosition > queueSize)
     {
         printf("\n[ERROR] Queue Overflow\n");
         exit(0);
     }
 
-    printf("[SETUP QUEUE]\n");
+    printf("[SETUP QUEUE]\n\n");
 
-    for (int i = 0; i <= endPosition; i++)
+    // taking the elements in the queue
+    for (int i = 0; i <= endPosition - 1; i++)
     {
         printf("Enter element %d: ", i + 1);
         scanf("%d", &queue[i]);
     }
 
+    printf("\n");
     printf("Operations:\n1.Insertion\n2.Deletion\n3.Jump\n4.Display\n5.Exit\n");
     printf("Enter operation number: ");
     scanf("%d", &operationNumber);
