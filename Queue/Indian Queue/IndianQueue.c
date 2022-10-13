@@ -10,10 +10,7 @@ void insertion(int this, int to, int in[])
 
     if (endPosition != queueSize - 1)
     {
-        int i = 0;
-        // printf("\ncurrent endposition: %d\ncurrent i: %d\ncurrent to: %d", endPosition, i, to);
-
-        for (i = endPosition; i >= to; i--)
+        for (int i = endPosition; i >= to; i--)
         {
             printf("\ncurrent endposition: %d\ncurrent i: %d", endPosition, i);
             printf("\nswapping %d and %d\n", in[endPosition], in[endPosition - 1]);
@@ -21,7 +18,6 @@ void insertion(int this, int to, int in[])
         }
         in[to] = this;
         endPosition++;
-        // printf("\ncurrent endposition: %d\ncurrent i: %d\ncurrent to: %d", endPosition, i, to);
         printf("\n[INSERTED]\n");
     }
     else
@@ -30,8 +26,27 @@ void insertion(int this, int to, int in[])
     }
 }
 
-void deletion(int from)
+void deletion(int from, int array[])
 {
+    if (!(from <= endPosition))
+    {
+        printf("\n[FAILED] out of range");
+    }
+    else if (endPosition != -1)
+    {
+        for (int i = from; i < endPosition; i++)
+        {
+            printf("\ncurrent endposition: %d\ncurrent i: %d", endPosition, i);
+            printf("\nswapping %d and %d\n", array[i], array[i + 1]);
+            array[i] = array[i + 1];
+        }
+        endPosition--;
+        printf("\n[DELETED]\n");
+    }
+    else
+    {
+        printf("\n[FAILED] Queue is empty");
+    }
 }
 
 void jump(int from, int to)
@@ -44,6 +59,11 @@ void display(int array[])
     {
         printf("%d ", array[i]);
     }
+    if (endPosition == -1)
+    {
+        printf("\n[EMPTY] queue is empty");
+    }
+
     printf("\n");
 }
 
@@ -105,7 +125,7 @@ void main()
             printf("\nEnter index position of item to be deleted: ");
             scanf("%d", &position);
 
-            deletion(position);
+            deletion(position, queue);
             break;
 
         case 3:
