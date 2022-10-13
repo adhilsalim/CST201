@@ -1,8 +1,9 @@
 
 
 #include <stdio.h>
+#include <stdlib.h>
 
-void insertion(int this, int to, int in)
+void insertion(int this, int to, int in[])
 {
 }
 
@@ -14,7 +15,7 @@ void jump(int from, int to)
 {
 }
 
-void display(int array)
+void display(int array[])
 {
 }
 
@@ -32,6 +33,12 @@ void main()
     printf("[QUEUE CREATED WITH SIZE %d]\n", queueSize);
     printf("\nEnter number of elements in queue: ");
     scanf("%d", &endPosition);
+
+    if (endPosition > queueSize)
+    {
+        printf("\n[ERROR] Queue Overflow\n");
+        exit(0);
+    }
 
     printf("[SETUP QUEUE]\n");
 
