@@ -3,11 +3,26 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-int endPosition = -1;
+int endPosition = -1, queueSize = 0;
 
 void insertion(int this, int to, int in[])
 {
-    // for (int i = endPosition)
+
+    if (endPosition != queueSize)
+    {
+
+        for (int i = endPosition - 1; i >= to + 1; i--)
+        {
+            in[endPosition - 1] = in[endPosition - 2];
+        }
+        in[to] = this;
+        endPosition++;
+        printf("\n[INSERTED]\n");
+    }
+    else
+    {
+        printf("\n[FAILED] Queue is full");
+    }
 }
 
 void deletion(int from)
@@ -20,11 +35,16 @@ void jump(int from, int to)
 
 void display(int array[])
 {
+    for (int i = 0; i <= endPosition - 1; i++)
+    {
+        printf("%d ", array[i]);
+    }
+    printf("\n");
 }
 
 void main()
 {
-    int queueSize, operationNumber, element, position = -1, jumpPosition = -1;
+    int operationNumber, element, position = -1, jumpPosition = -1;
 
     printf("[INDIAN QUEUE]\n\n");
     printf("[CREATING QUEUE]\n");
@@ -55,12 +75,13 @@ void main()
     }
 
     printf("\n");
-    printf("Operations:\n1.Insertion\n2.Deletion\n3.Jump\n4.Display\n5.Exit\n");
-    printf("Enter operation number: ");
-    scanf("%d", &operationNumber);
+    printf("[CHOOSE OPERATION]:\n\n1.Insertion\n2.Deletion\n3.Jump\n4.Display\n5.Exit\n");
 
     for (int loop = 0; loop >= 0; loop++)
     {
+        printf("\nEnter operation number: ");
+        scanf("%d", &operationNumber);
+
         switch (operationNumber)
         {
         case 1:
