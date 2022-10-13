@@ -2,55 +2,80 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <stdbool.h>
 
-int endPosition = -1, queueSize = 0;
+int endPosition = -1, queueSize = 0, jumpStatus = 0;
+bool jumping = false;
 
-void insertion(int this, int to, int in[])
+void insertion(int this, int to, int in[], bool jumping)
 {
 
     if (endPosition != queueSize - 1)
     {
         for (int i = endPosition; i >= to; i--)
         {
-            printf("\ncurrent endposition: %d\ncurrent i: %d", endPosition, i);
-            printf("\nswapping %d and %d\n", in[endPosition], in[endPosition - 1]);
             in[i + 1] = in[i];
         }
         in[to] = this;
         endPosition++;
-        printf("\n[INSERTED]\n");
+        jumpStatus++;
+
+        if (!jumping)
+            printf("\n[INSERTED]\n");
     }
     else
     {
-        printf("\n[FAILED] Queue is full");
+        if (!jumping)
+            printf("\n[FAILED] Queue is full");
     }
 }
 
-void deletion(int from, int array[])
+void deletion(int from, int array[], bool jumping)
 {
-    if (!(from <= endPosition))
+    if (!(from <= endPosition) || 1 == 0)
     {
-        printf("\n[FAILED] out of range");
+        if (!jumping)
+            printf("\n[FAILED] out of range");
     }
     else if (endPosition != -1)
     {
         for (int i = from; i < endPosition; i++)
         {
-            printf("\ncurrent endposition: %d\ncurrent i: %d", endPosition, i);
-            printf("\nswapping %d and %d\n", array[i], array[i + 1]);
             array[i] = array[i + 1];
         }
         endPosition--;
-        printf("\n[DELETED]\n");
+        jumpStatus++;
+
+        if (!jumping)
+            printf("\n[DELETED]\n");
     }
     else
     {
-        printf("\n[FAILED] Queue is empty");
+        if (!jumping)
+            printf("\n[FAILED] Queue is empty");
     }
 }
 
-void jump(int from, int to)
+void jump(int from, int to, int in[])
 {
+    jumpStatus = 0;
+    // if(from>=endPosition)
+    int temp1 = in[from]; // from
+    int temp2 = in[to];   // to
+
+    deletion(to, in, true);
+    insertion(temp2, from, in, true);
+    deletion(from + 1, in, true);
+    insertion(temp1, to, in, true);
+
+    if (jumpStatus != 2)
+    {
+        printf("\n[FAILED] Jumping is not possible");
+    }
+    else
+    {
+        printf("\n[JUMPED]\n");
+    }
 }
 
 void display(int array[])
@@ -117,7 +142,7 @@ void main()
             printf("\nEnter index position to insert: ");
             scanf("%d", &position);
 
-            insertion(element, position, queue);
+            insertion(element, position, queue, false);
 
             break;
 
@@ -125,7 +150,7 @@ void main()
             printf("\nEnter index position of item to be deleted: ");
             scanf("%d", &position);
 
-            deletion(position, queue);
+            deletion(position, queue, false);
             break;
 
         case 3:
@@ -135,7 +160,7 @@ void main()
             printf("Enter position to jump to: ");
             scanf("%d", &jumpPosition);
 
-            jump(position, jumpPosition);
+            jump(position, jumpPosition, queue);
             break;
 
         case 4:
