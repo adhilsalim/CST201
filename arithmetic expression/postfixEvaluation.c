@@ -82,8 +82,11 @@ void main()
         }
         else
         {
+            if (expression[i] == '(')
+            {
+            }
             // if the order of current op is greater than the order of op in stack then push to stack
-            if (orderOfOperator(expression[i]) > orderOfOperator(stack[stack_TOP]))
+            else if (orderOfOperator(expression[i]) > orderOfOperator(stack[stack_TOP]))
             {
 
                 stack_TOP++;
