@@ -8,15 +8,20 @@ int endPosition = -1, queueSize = 0;
 void insertion(int this, int to, int in[])
 {
 
-    if (endPosition != queueSize)
+    if (endPosition != queueSize - 1)
     {
+        int i = 0;
+        // printf("\ncurrent endposition: %d\ncurrent i: %d\ncurrent to: %d", endPosition, i, to);
 
-        for (int i = endPosition - 1; i >= to + 1; i--)
+        for (i = endPosition; i >= to; i--)
         {
-            in[endPosition - 1] = in[endPosition - 2];
+            printf("\ncurrent endposition: %d\ncurrent i: %d", endPosition, i);
+            printf("\nswapping %d and %d\n", in[endPosition], in[endPosition - 1]);
+            in[i + 1] = in[i];
         }
         in[to] = this;
         endPosition++;
+        // printf("\ncurrent endposition: %d\ncurrent i: %d\ncurrent to: %d", endPosition, i, to);
         printf("\n[INSERTED]\n");
     }
     else
@@ -35,7 +40,7 @@ void jump(int from, int to)
 
 void display(int array[])
 {
-    for (int i = 0; i <= endPosition - 1; i++)
+    for (int i = 0; i <= endPosition; i++)
     {
         printf("%d ", array[i]);
     }
@@ -56,10 +61,11 @@ void main()
     printf("[QUEUE CREATED WITH SIZE %d]\n", queueSize);
     printf("\nEnter number of elements in queue: ");
     scanf("%d", &endPosition); // taking the number of elements in the queue
+    endPosition--;
     printf("\n");
 
     // checking overflow conidition
-    if (endPosition > queueSize)
+    if (endPosition > queueSize - 1)
     {
         printf("\n[ERROR] Queue Overflow\n");
         exit(0);
@@ -68,7 +74,7 @@ void main()
     printf("[SETUP QUEUE]\n\n");
 
     // taking the elements in the queue
-    for (int i = 0; i <= endPosition - 1; i++)
+    for (int i = 0; i <= endPosition; i++)
     {
         printf("Enter element %d: ", i + 1);
         scanf("%d", &queue[i]);
