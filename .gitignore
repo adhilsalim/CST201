@@ -1,3 +1,6 @@
 #ignoring exe and out files in a directory
 *.exe
 *.out
+
+#ignore .txt files
+*.txt
