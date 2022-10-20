@@ -1,3 +1,8 @@
+/*
+This program converts sparse matrix to tuple matrix
+Author: Adhil Salim
+*/
+
 #include <stdio.h>
 
 void main()
