@@ -1,4 +1,6 @@
 /*
+This program gets a sparse matrix then gives the transpose of the given sparse matrix by using tuple matrix.
+Author: Adhil Salim
  */
 
 #include <stdio.h>
