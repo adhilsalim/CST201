@@ -108,24 +108,28 @@ void main()
     }
 
     // declaring transpose matrix
-    int transposeMatrix[tupleMatrix[0][0]][tupleMatrix[1][0]];
+    int transposeMatrix[tupleMatrix[0][0]][tupleMatrix[0][1]];
 
     // initializing zeroes to transpose matrix
     for (int i = 0; i < tupleMatrix[0][0]; i++)
     {
         for (int j = 0; j < tupleMatrix[0][1]; j++)
         {
-            transposeMatrix[i][j];
+            transposeMatrix[i][j] = 0;
         }
     }
 
     // converting tuple to transpose
-    for (int i = 1; i < nonZeroNumbers; i++)
+    printf("%d", nonZeroNumbers);
+    for (int i = 1; i <= nonZeroNumbers; i++)
     {
         transposeMatrix[tupleMatrix[i][0]][tupleMatrix[i][1]] = tupleMatrix[i][2];
+        printf("\nT[%d,%d] = %d", tupleMatrix[i][0], tupleMatrix[i][1], tupleMatrix[i][2]);
     }
 
     // printing transpose of sparse matrix
+    printf("\nThe transpose of the matrix is: \n");
+
     for (int i = 0; i < tupleMatrix[0][0]; i++)
     {
         for (int j = 0; j < tupleMatrix[0][1]; j++)
