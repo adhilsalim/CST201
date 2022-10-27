@@ -104,6 +104,7 @@ void main()
         // declaring tuple matrix one and two
         int tupleMatrixOne[nonZeroNumbers_One + 1][3];
         int tupleMatrixTwo[nonZeroNumbers_Two + 1][3];
+        int tupleMatrixSum[nonZeroNumbers_One + nonZeroNumbers_Two + 1][3];
 
         // storing the number of rows, columns and non-zero numbers in the first row of tuple matrix
         tupleMatrixOne[0][0] = sparseRowsOne;
@@ -112,7 +113,14 @@ void main()
 
         tupleMatrixTwo[0][0] = sparseRowsTwo;
         tupleMatrixTwo[0][1] = sparseColsTwo;
-        tupleMatrixTwo[0][2] = nonZeroNumbers_Two; //[HERE]
+        tupleMatrixTwo[0][2] = nonZeroNumbers_Two;
+
+        /*
+        If the sum of a matrix element is 0, (eg -2+2=0) that results in 0
+        */
+        tupleMatrixSum[0][0] = sparseRowsOne;
+        tupleMatrixSum[0][1] = sparseColsOne;
+        tupleMatrixSum[0][2] = nonZeroNumbers_One + nonZeroNumbers_Two;
 
         // storing the non-zero elements of sparse matrix in tuple matrix one
         for (int i = 0, k = 1; i < sparseRowsOne; i++)
@@ -167,5 +175,45 @@ void main()
             }
             printf("\n");
         }
+
+        for (int i = 1; i < tupleMatrixSum[0][2]; i++)
+        {
+            if (tupleMatrixOne[i][0] == tupleMatrixTwo[i][0])
+            {
+                if (tupleMatrixOne[i][1] == tupleMatrixTwo[i][1])
+                {
+                    tupleMatrixSum[i][0] = tupleMatrixOne[i][0];
+                    tupleMatrixSum[i][1] = tupleMatrixOne[i][1];
+                    tupleMatrixSum[i][2] = tupleMatrixOne[i][2] + tupleMatrixTwo[i][2];
+                }
+                else
+                {
+                    tupleMatrixSum[i][0] = tupleMatrixOne[i][0];
+                    tupleMatrixSum[i][1] = tupleMatrixOne[i][1];
+                    tupleMatrixSum[i][2] = tupleMatrixOne[i][2];
+
+                    i++;
+
+                    tupleMatrixSum[i][0] = tupleMatrixTwo[i][0];
+                    tupleMatrixSum[i][1] = tupleMatrixTwo[i][1];
+                    tupleMatrixSum[i][2] = tupleMatrixTwo[i][2];
+                }
+            }
+        }
+
+        printf("\nThe tuple matrix sum is: \n");
+
+        for (int i = 0; i < tupleMatrixSum[0][2] + 1; i++) // index of rows of tuple matrix = non zero numbers
+        {
+            for (int j = 0; j < 3; j++)
+            {
+                printf("%d ", tupleMatrixSum[i][j]);
+            }
+            printf("\n");
+        }
+    }
+    else
+    {
+        printf("Matrix addition is not possible.");
     }
 }
