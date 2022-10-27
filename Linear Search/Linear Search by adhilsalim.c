@@ -1,5 +1,6 @@
 /*
-
+This program performs linear search
+Author: Adhil Salim
 */
 #include <stdio.h>
 
@@ -13,12 +14,14 @@ void main()
 
     int mainArray[totalElements];
 
+    // getting elements into array
     for (int i = 0; i < totalElements; i++)
     {
         printf("Enter element %d: ", i + 1);
         scanf("%d", &mainArray[i]);
     }
 
+    // printing array
     printf("\nPrinting Array: ");
     for (int i = 0; i < totalElements; i++)
     {
@@ -28,6 +31,7 @@ void main()
     printf("\nEnter element to be searched: ");
     scanf("%d", &key);
 
+    // searching for element
     for (i = 0; i < totalElements; i++)
     {
         if (mainArray[i] == key)
