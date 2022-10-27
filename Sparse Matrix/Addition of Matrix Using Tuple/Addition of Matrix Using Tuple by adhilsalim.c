@@ -20,148 +20,152 @@ void main()
     printf("Enter the number of columns of sparse matrix two: ");
     scanf("%d", &sparseColsTwo);
 
-    // Declaring Sparse Matrix
-    int sparseMatrixOne[sparseRowsOne][sparseColsOne];
-    int sparseMatrixTwo[sparseRowsTwo][sparseColsTwo];
-
-    // Input the sparse matrix one
-    printf("Enter the elements of sparse matrix one: \n");
-    for (int i = 0; i < sparseRowsOne; i++)
+    if (sparseColsOne == sparseColsTwo && sparseRowsOne == sparseRowsTwo)
     {
-        for (int j = 0; j < sparseColsOne; j++)
+
+        // Declaring Sparse Matrix
+        int sparseMatrixOne[sparseRowsOne][sparseColsOne];
+        int sparseMatrixTwo[sparseRowsTwo][sparseColsTwo];
+
+        // Input the sparse matrix one
+        printf("Enter the elements of sparse matrix one: \n");
+        for (int i = 0; i < sparseRowsOne; i++)
         {
-            printf("Enter the element at position (%d,%d): ", i, j);
-            scanf("%d", &sparseMatrixOne[i][j]);
-        }
-    }
-
-    // Input the sparse matrix two
-    printf("Enter the elements of sparse matrix two: \n");
-    for (int i = 0; i < sparseRowsTwo; i++)
-    {
-        for (int j = 0; j < sparseColsTwo; j++)
-        {
-            printf("Enter the element at position (%d,%d): ", i, j);
-            scanf("%d", &sparseMatrixTwo[i][j]);
-        }
-    }
-
-    // printing the sparse matrix one
-    printf("\nThe sparse matrix one is: \n");
-
-    for (int i = 0; i < sparseRowsOne; i++)
-    {
-        for (int j = 0; j < sparseColsOne; j++)
-        {
-            printf("%d ", sparseMatrixOne[i][j]);
-        }
-        printf("\n");
-    }
-
-    printf("\n");
-
-    // printing the sparse matrix two
-    printf("\nThe sparse matrix two is: \n");
-
-    for (int i = 0; i < sparseRowsTwo; i++)
-    {
-        for (int j = 0; j < sparseColsTwo; j++)
-        {
-            printf("%d ", sparseMatrixTwo[i][j]);
-        }
-        printf("\n");
-    }
-
-    printf("\n");
-
-    // Counting the number of non-zero elements in the sparse matrix one
-    for (int i = 0; i < sparseRowsOne; i++)
-    {
-        for (int j = 0; j < sparseColsOne; j++)
-        {
-            if (sparseMatrixOne[i][j] != 0)
+            for (int j = 0; j < sparseColsOne; j++)
             {
-                nonZeroNumbers_One++;
+                printf("Enter the element at position (%d,%d): ", i, j);
+                scanf("%d", &sparseMatrixOne[i][j]);
             }
         }
-    }
 
-    // Counting the number of non-zero elements in the sparse matrix two
-    for (int i = 0; i < sparseRowsTwo; i++)
-    {
-        for (int j = 0; j < sparseColsTwo; j++)
+        // Input the sparse matrix two
+        printf("Enter the elements of sparse matrix two: \n");
+        for (int i = 0; i < sparseRowsTwo; i++)
         {
-            if (sparseMatrixTwo[i][j] != 0)
+            for (int j = 0; j < sparseColsTwo; j++)
             {
-                nonZeroNumbers_Two++;
+                printf("Enter the element at position (%d,%d): ", i, j);
+                scanf("%d", &sparseMatrixTwo[i][j]);
             }
         }
-    }
 
-    // declaring tuple matrix one and two
-    int tupleMatrixOne[nonZeroNumbers_One + 1][3];
-    int tupleMatrixTwo[nonZeroNumbers_Two + 1][3];
+        // printing the sparse matrix one
+        printf("\nThe sparse matrix one is: \n");
 
-    // storing the number of rows, columns and non-zero numbers in the first row of tuple matrix
-    tupleMatrixOne[0][0] = sparseRowsOne;
-    tupleMatrixOne[0][1] = sparseColsOne;
-    tupleMatrixOne[0][2] = nonZeroNumbers_One;
-
-    tupleMatrixTwo[0][0] = sparseRowsTwo;
-    tupleMatrixTwo[0][1] = sparseColsTwo;
-    tupleMatrixTwo[0][2] = nonZeroNumbers_Two; //[HERE]
-
-    // storing the non-zero elements of sparse matrix in tuple matrix one
-    for (int i = 0, k = 1; i < sparseRowsOne; i++)
-    {
-        for (int j = 0; j < sparseColsOne; j++)
+        for (int i = 0; i < sparseRowsOne; i++)
         {
-            if (sparseMatrixOne[i][j] != 0)
+            for (int j = 0; j < sparseColsOne; j++)
             {
-                tupleMatrixOne[k][0] = i;
-                tupleMatrixOne[k][1] = j;
-                tupleMatrixOne[k][2] = sparseMatrixOne[i][j];
-                k++;
+                printf("%d ", sparseMatrixOne[i][j]);
             }
+            printf("\n");
         }
-    }
 
-    // storing the non-zero elements of sparse matrix in tuple matrix two
-    for (int i = 0, k = 1; i < sparseRowsTwo; i++)
-    {
-        for (int j = 0; j < sparseColsTwo; j++)
-        {
-            if (sparseMatrixTwo[i][j] != 0)
-            {
-                tupleMatrixTwo[k][0] = i;
-                tupleMatrixTwo[k][1] = j;
-                tupleMatrixTwo[k][2] = sparseMatrixTwo[i][j];
-                k++;
-            }
-        }
-    }
-
-    // printing the tuple matrix one
-    printf("\nThe tuple matrix one is: \n");
-
-    for (int i = 0; i < nonZeroNumbers_One + 1; i++) // index of rows of tuple matrix = non zero numbers
-    {
-        for (int j = 0; j < 3; j++)
-        {
-            printf("%d ", tupleMatrixOne[i][j]);
-        }
         printf("\n");
-    }
 
-    // printing the tuple matrix two
-    printf("\nThe tuple matrix two is: \n");
+        // printing the sparse matrix two
+        printf("\nThe sparse matrix two is: \n");
 
-    for (int i = 0; i < nonZeroNumbers_Two + 1; i++) // index of rows of tuple matrix = non zero numbers
-    {
-        for (int j = 0; j < 3; j++)
+        for (int i = 0; i < sparseRowsTwo; i++)
         {
-            printf("%d ", tupleMatrixTwo[i][j]);
+            for (int j = 0; j < sparseColsTwo; j++)
+            {
+                printf("%d ", sparseMatrixTwo[i][j]);
+            }
+            printf("\n");
         }
+
         printf("\n");
+
+        // Counting the number of non-zero elements in the sparse matrix one
+        for (int i = 0; i < sparseRowsOne; i++)
+        {
+            for (int j = 0; j < sparseColsOne; j++)
+            {
+                if (sparseMatrixOne[i][j] != 0)
+                {
+                    nonZeroNumbers_One++;
+                }
+            }
+        }
+
+        // Counting the number of non-zero elements in the sparse matrix two
+        for (int i = 0; i < sparseRowsTwo; i++)
+        {
+            for (int j = 0; j < sparseColsTwo; j++)
+            {
+                if (sparseMatrixTwo[i][j] != 0)
+                {
+                    nonZeroNumbers_Two++;
+                }
+            }
+        }
+
+        // declaring tuple matrix one and two
+        int tupleMatrixOne[nonZeroNumbers_One + 1][3];
+        int tupleMatrixTwo[nonZeroNumbers_Two + 1][3];
+
+        // storing the number of rows, columns and non-zero numbers in the first row of tuple matrix
+        tupleMatrixOne[0][0] = sparseRowsOne;
+        tupleMatrixOne[0][1] = sparseColsOne;
+        tupleMatrixOne[0][2] = nonZeroNumbers_One;
+
+        tupleMatrixTwo[0][0] = sparseRowsTwo;
+        tupleMatrixTwo[0][1] = sparseColsTwo;
+        tupleMatrixTwo[0][2] = nonZeroNumbers_Two; //[HERE]
+
+        // storing the non-zero elements of sparse matrix in tuple matrix one
+        for (int i = 0, k = 1; i < sparseRowsOne; i++)
+        {
+            for (int j = 0; j < sparseColsOne; j++)
+            {
+                if (sparseMatrixOne[i][j] != 0)
+                {
+                    tupleMatrixOne[k][0] = i;
+                    tupleMatrixOne[k][1] = j;
+                    tupleMatrixOne[k][2] = sparseMatrixOne[i][j];
+                    k++;
+                }
+            }
+        }
+
+        // storing the non-zero elements of sparse matrix in tuple matrix two
+        for (int i = 0, k = 1; i < sparseRowsTwo; i++)
+        {
+            for (int j = 0; j < sparseColsTwo; j++)
+            {
+                if (sparseMatrixTwo[i][j] != 0)
+                {
+                    tupleMatrixTwo[k][0] = i;
+                    tupleMatrixTwo[k][1] = j;
+                    tupleMatrixTwo[k][2] = sparseMatrixTwo[i][j];
+                    k++;
+                }
+            }
+        }
+
+        // printing the tuple matrix one
+        printf("\nThe tuple matrix one is: \n");
+
+        for (int i = 0; i < nonZeroNumbers_One + 1; i++) // index of rows of tuple matrix = non zero numbers
+        {
+            for (int j = 0; j < 3; j++)
+            {
+                printf("%d ", tupleMatrixOne[i][j]);
+            }
+            printf("\n");
+        }
+
+        // printing the tuple matrix two
+        printf("\nThe tuple matrix two is: \n");
+
+        for (int i = 0; i < nonZeroNumbers_Two + 1; i++) // index of rows of tuple matrix = non zero numbers
+        {
+            for (int j = 0; j < 3; j++)
+            {
+                printf("%d ", tupleMatrixTwo[i][j]);
+            }
+            printf("\n");
+        }
     }
 }
