@@ -38,25 +38,22 @@ void main()
     printf("\nEnter element to be searched: ");
     scanf("%d", &key);
 
-    while (low != high)
+    while (low <= high)
     {
         if (mainArray[mid] == key)
         {
             found = 1;
-            printf("L %d H %d M %d\n", low, high, mid);
             break;
         }
         else if (key > mid)
         {
             low = mid + 1;
             mid = (low + high) / 2;
-            printf("L %d H %d M %d\n", low, high, mid);
         }
         else if (key < mid)
         {
             high = mid - 1;
             mid = (low + high) / 2;
-            printf("L %d H %d M %d\n", low, high, mid);
         }
     }
 
