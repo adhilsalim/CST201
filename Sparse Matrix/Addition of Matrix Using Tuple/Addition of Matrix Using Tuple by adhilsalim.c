@@ -111,29 +111,56 @@ void main()
     tupleMatrixTwo[0][1] = sparseColsTwo;
     tupleMatrixTwo[0][2] = nonZeroNumbers_Two; //[HERE]
 
-    // storing the non-zero elements of sparse matrix in tuple matrix
-    for (int i = 0, k = 1; i < sparseRows; i++)
+    // storing the non-zero elements of sparse matrix in tuple matrix one
+    for (int i = 0, k = 1; i < sparseRowsOne; i++)
     {
-        for (int j = 0; j < sparseCols; j++)
+        for (int j = 0; j < sparseColsOne; j++)
         {
-            if (sparseMatrix[i][j] != 0)
+            if (sparseMatrixOne[i][j] != 0)
             {
-                tupleMatrix[k][0] = i;
-                tupleMatrix[k][1] = j;
-                tupleMatrix[k][2] = sparseMatrix[i][j];
+                tupleMatrixOne[k][0] = i;
+                tupleMatrixOne[k][1] = j;
+                tupleMatrixOne[k][2] = sparseMatrixOne[i][j];
                 k++;
             }
         }
     }
 
-    // printing the tuple matrix
-    printf("\nThe tuple matrix is: \n");
+    // storing the non-zero elements of sparse matrix in tuple matrix two
+    for (int i = 0, k = 1; i < sparseRowsTwo; i++)
+    {
+        for (int j = 0; j < sparseColsTwo; j++)
+        {
+            if (sparseMatrixTwo[i][j] != 0)
+            {
+                tupleMatrixTwo[k][0] = i;
+                tupleMatrixTwo[k][1] = j;
+                tupleMatrixTwo[k][2] = sparseMatrixTwo[i][j];
+                k++;
+            }
+        }
+    }
 
-    for (int i = 0; i < nonZeroNumbers + 1; i++) // index of rows of tuple matrix = non zero numbers
+    // printing the tuple matrix one
+    printf("\nThe tuple matrix one is: \n");
+
+    for (int i = 0; i < nonZeroNumbers_One + 1; i++) // index of rows of tuple matrix = non zero numbers
     {
         for (int j = 0; j < 3; j++)
         {
-            printf("%d ", tupleMatrix[i][j]);
+            printf("%d ", tupleMatrixOne[i][j]);
+        }
+        printf("\n");
+    }
+
+    // printing the tuple matrix two
+    printf("\nThe tuple matrix two is: \n");
+
+    for (int i = 0; i < nonZeroNumbers_Two + 1; i++) // index of rows of tuple matrix = non zero numbers
+    {
+        for (int j = 0; j < 3; j++)
+        {
+            printf("%d ", tupleMatrixTwo[i][j]);
         }
         printf("\n");
     }
