@@ -112,6 +112,12 @@ void main()
             */
             else if (orderOfOperator(expression[i]) != 3 && orderOfOperator(expression[i]) == orderOfOperator(stack[stack_TOP]))
             {
+                stack_TOP--;
+                printf("%c", expression[i]);
+            }
+            else if ()
+            {
+                /* code */
             }
 
             if (expression[i] == '(')
