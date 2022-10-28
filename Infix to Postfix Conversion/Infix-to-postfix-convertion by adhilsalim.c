@@ -16,7 +16,7 @@ READ ME:
 #include <stdio.h>
 #include <stdbool.h>
 
-// function to check if the character is an operator
+// function to check if the character is an operator, returns either true or false
 // requires header file <stdbool.h>
 bool isOperator(char c)
 {
@@ -30,6 +30,7 @@ bool isOperator(char c)
     }
 }
 
+// function to return order of operator
 int orderOfOperator(char c)
 {
     if (c == '+' || c == '-')
@@ -63,25 +64,56 @@ void main()
     char stack[totalChars];      // stack for operators
 
     stack_TOP++;
-    stack[stack_TOP] = '('; // pushing '(' to the stack to mark the end of the expression
+    stack[stack_TOP] = '('; // pushing '(' to the stack to mark the starting of the expression
 
     // getting expression
     printf("Enter the arithmetic expression: ");
     scanf("%s", expression);
 
-    // printf("The expression is: %s\n", expression);
-
-    //[ISSUE #1] - printing '(' and ')' in the expression
-
-    // looping through the expression
+    // traversing through the expression
     for (int i = 0; i < totalChars; i++)
     {
+        /*
+            if it's an operand print it
+        */
         if (!isOperator(expression[i]))
         {
             printf("%c", expression[i]);
         }
+        /*
+            if it's an operator
+        */
         else
         {
+            /*
+                If the precedence and associativity of the scanned operator are greater
+                than the precedence and associativity of the operator in the stack, then push to stack.
+            */
+
+            if (orderOfOperator(expression[i] > orderOfOperator(stack[stack_TOP])))
+            {
+                stack_TOP++;
+                stack[stack_TOP] = expression[i];
+            }
+            /*
+                ‘^’ operator is right associative. So if operator to be pushed and operator present at top of
+                stack are ^ then push ^ due to right associativity.
+            */
+            else if (expression[i] == '^' && stack[stack_TOP] == '^')
+            {
+                stack_TOP++;
+                stack[stack_TOP] = expression[i];
+            }
+            /*
+                In all the other cases when the top of the operator stack is the same as the scanned operator,
+                then pop the operator from the stack because of left associativity due to which the scanned operator
+                has less precedence.
+
+            */
+            else if (orderOfOperator(expression[i]) != 3 && orderOfOperator(expression[i]) == orderOfOperator(stack[stack_TOP]))
+            {
+            }
+
             if (expression[i] == '(')
             {
             }
