@@ -112,35 +112,55 @@ void main()
             */
             else if (orderOfOperator(expression[i]) != 3 && orderOfOperator(expression[i]) == orderOfOperator(stack[stack_TOP]))
             {
-                stack_TOP--;
-                printf("%c", expression[i]);
-            }
-            else if ()
-            {
-                /* code */
-            }
-
-            if (expression[i] == '(')
-            {
-            }
-            // if the order of current op is greater than the order of op in stack then push to stack
-            else if (orderOfOperator(expression[i]) > orderOfOperator(stack[stack_TOP]))
-            {
-
-                stack_TOP++;
+                printf("%c", stack[stack_TOP]);
+                // stack_TOP--;
+                // stack_TOP++; (Logic: -1+1 = 0)
                 stack[stack_TOP] = expression[i];
             }
-            else
+            else if (orderOfOperator(expression[i]) < orderOfOperator(stack[stack_TOP]))
             {
-                while (orderOfOperator(expression[i]) <= orderOfOperator(stack[stack_TOP]))
+                while (orderOfOperator(stack[stack_TOP]) >= orderOfOperator(expression[i]))
                 {
+                    if (stack[stack_TOP] == '(')
+                    {
+                        break;
+                    }
+
                     printf("%c", stack[stack_TOP]);
                     stack_TOP--;
                 }
                 stack_TOP++;
                 stack[stack_TOP] = expression[i];
             }
+            /*
+                if the incoming operator is (, then push to stack
+            */
+            if (expression[i] == '(')
+            {
+                stack_TOP++;
+                stack[stack_TOP] = '(';
+            }
+            /*
+                if the incoming operator is ')' , then pop all operator from the stack until
+                the stack[top] is a ')', and discard both the parenthesis.
+            */
+            else if (expression[i] == ')')
+            {
+                while (expression[stack_TOP] != '(')
+                {
+                    printf("%c", stack[stack_TOP]);
+                    stack_TOP--;
+                }
+                stack_TOP--; // to ignore '('
+            }
         }
     }
-    // printf("%c", stack[stack_TOP]);
+    if (stack_TOP != -1)
+    {
+        while (stack_TOP != -1)
+        {
+            printf("%c", stack[stack_TOP]);
+            stack_TOP--;
+        }
+    }
 }
