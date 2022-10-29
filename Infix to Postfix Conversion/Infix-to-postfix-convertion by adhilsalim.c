@@ -73,6 +73,8 @@ void main()
     // traversing through the expression
     for (int i = 0; i < totalChars; i++)
     {
+        // printf("\n[ Reading: %c ]", expression[i]);
+        // printf("\n[ Stack: %S ]\n", stack);
         /*
             if it's an operand print it
         */
@@ -90,7 +92,7 @@ void main()
                 than the precedence and associativity of the operator in the stack, then push to stack.
             */
 
-            if (orderOfOperator(expression[i] > orderOfOperator(stack[stack_TOP])))
+            if (orderOfOperator(expression[i]) > orderOfOperator(stack[stack_TOP]))
             {
                 stack_TOP++;
                 stack[stack_TOP] = expression[i];
@@ -155,12 +157,13 @@ void main()
             }
         }
     }
-    if (stack_TOP != -1)
+    /*if (stack_TOP != -1)
     {
-        while (stack_TOP != -1)
+        while (expression[stack_TOP] != '(')
         {
             printf("%c", stack[stack_TOP]);
             stack_TOP--;
         }
-    }
+        stack_TOP--; // to ignore '('
+    }*/
 }
