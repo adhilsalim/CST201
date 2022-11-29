@@ -3,6 +3,8 @@
 #include <stdbool.h>
 
 //=========================STRUCTURE=========================//
+bool linkedListCreated = false;
+
 struct node
 {
     int data;
@@ -14,9 +16,18 @@ struct node *head = NULL;
 //==========================CREATING LL=========================//
 void createLL()
 {
-    printf("\n\n| Creating a LinkedList |\n\n");
-    head = (struct node *)malloc(sizeof(struct node));
-    printf("Linked List created");
+    if (linkedListCreated == false)
+    {
+        printf("\n\n| Creating a LinkedList |\n\n");
+        head = (struct node *)malloc(sizeof(struct node));
+        printf("[CONSOLE]Linked List created");
+        linkedListCreated = true;
+        free(head);
+    }
+    else
+    {
+        printf("\n[CONSOLE]A LinkedList is already created.\n");
+    }
 }
 
 void displayLL()
