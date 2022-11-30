@@ -2,8 +2,8 @@
 #include <stdlib.h>
 #include <stdbool.h>
 
-//=========================STRUCTURE=========================//
-bool linkedListCreated = false;
+//======================================= STRUCTURE =====================================//
+bool LLExist = false;
 
 struct node
 {
@@ -12,90 +12,325 @@ struct node
 };
 
 struct node *head = NULL;
+struct node *temp = NULL;
 
-//==========================CREATING LL=========================//
+//======================================= CREATE LL =====================================//
 void createLL()
 {
-    if (linkedListCreated == false)
+    int LLdata;
+
+    if (LLExist == false)
     {
-        printf("\n\n| Creating a Linked List |\n\n");
         head = (struct node *)malloc(sizeof(struct node));
-        printf("[CONSOLE]Linked List created");
-        linkedListCreated = true;
-        free(head);
+        LLExist = true;
+        printf("Enter data for first node: ");
+        scanf("%d", &LLdata);
+
+        head->data = LLdata;
+        head->link = NULL;
+
+        printf("\n[Linked List Created]\n");
     }
     else
     {
-        printf("\n[CONSOLE]A Linked List is already created.\n");
+        printf("\nA linked list is already created.\n");
     }
+    printf("\n-----------------------------------------\n");
 }
 
+//======================================= DISPLAY LL =====================================//
 void displayLL()
 {
-    printf("Hello");
+
+    if (head != NULL)
+    {
+
+        temp = head;
+
+        while (temp != NULL)
+        {
+            printf("%d", temp->data);
+            temp = temp->link;
+
+            if (temp != NULL)
+            {
+                printf(" - ");
+            }
+        }
+    }
+    else
+    {
+        printf("\nLinked List Doesn't exist.\n");
+    }
+    printf("\n-----------------------------------------\n");
 }
 
-//========================== INSERT LL =========================//
+//======================================= INSERT FRONT =====================================//
+
+void insertF()
+{
+
+    int data;
+
+    if (head != NULL)
+    {
+        temp = head;
+
+        struct node *newNode = NULL;
+        newNode = (struct node *)malloc(sizeof(struct node));
+
+        printf("\nEnter data for new node: ");
+        scanf("%d", &data);
+
+        newNode->data = data;
+        newNode->link = head;
+        head = newNode;
+    }
+    else
+    {
+        printf("\nLinked List Doesn't Exist.\n");
+    }
+    printf("\n-----------------------------------------\n");
+}
+
+//======================================= INSERT END =====================================//
+
+void insertE()
+{
+    int data;
+
+    if (head != NULL)
+    {
+        temp = head;
+
+        struct node *newNode = NULL;
+        struct node *temp = NULL;
+
+        newNode = (struct node *)malloc(sizeof(struct node));
+
+        printf("\nEnter data for new node: ");
+        scanf("%d", &data);
+
+        newNode->data = data;
+        newNode->link = NULL;
+
+        temp = head;
+
+        while (temp->link != NULL)
+        {
+            temp = temp->link;
+        }
+
+        temp->link = newNode;
+    }
+    else
+    {
+        printf("\nLinked List Doesn't Exist.\n");
+    }
+    printf("\n-----------------------------------------\n");
+}
+
+//======================================= INSERT PARTICULAR =====================================//
+
+void insertP(struct node *hd, int pos, int dir)
+{
+
+    if (head != NULL)
+    {
+        int data;
+
+        if (dir == 2 || dir == 1)
+        {
+
+            struct node *temp = NULL;
+            struct node *prevtemp = NULL;
+            struct node *newNode = NULL;
+            newNode = (struct node *)malloc(sizeof(struct node));
+
+            temp = hd; // temp =  head; //(global)
+
+            printf("Enter data for new node: ");
+            scanf("%d", &data);
+
+            newNode->data = data;
+            newNode->link = NULL;
+
+            if (dir == 1)
+            {
+                // AFTER
+                while (temp->data != pos)
+                {
+                    temp = temp->link;
+
+                    if (temp == NULL)
+                    {
+                        break;
+                    }
+                }
+
+                if (temp == NULL)
+                {
+                    printf("\nElement %d is not present in Linked List.", pos);
+                    free(newNode);
+                }
+                else
+                {
+
+                    // printf("%p", temp->link);
+
+                    newNode->link = temp->link;
+                    temp->link = newNode;
+                }
+            }
+            else
+            {
+                // BEFORE
+
+                temp = hd;
+                prevtemp = NULL;
+
+                while (temp->data != pos)
+                {
+                    prevtemp = temp;
+                    temp = temp->link;
+
+                    if (temp == NULL)
+                    {
+                        break;
+                    }
+                }
+
+                if (temp == NULL)
+                {
+                    printf("\nElement %d is not present in Linked List.", pos);
+                    free(newNode);
+                }
+
+                if (prevtemp != NULL)
+                {
+                    prevtemp->link = newNode;
+                    newNode->link = temp;
+                }
+                else
+                {
+                    newNode->link = temp;
+                    head = newNode;
+                }
+            }
+        }
+        else
+        {
+            printf("\nInvalid direction.");
+        }
+    }
+    else
+    {
+        printf("Linked List Doesn't Exist.");
+    }
+    printf("\n-----------------------------------------\n");
+}
+
+//======================================= INSERT LL =====================================//
 void insertLL()
 {
+
     int choice;
-    printf("\n\n[INSERT ELEMENT]Selection an operation number from the list: \n");
-    printf("1.Insertion at front of Linked List.\n2.Insertion at end of Linked List.\nInsertion at particular position.\n4.Exit.");
-    printf("Select an operation number: ");
-    scanf("%d", % choice);
+    int position;
+    int direction;
+    bool exitLoop = false;
 
-    switch (choice)
+    for (int i = 0; i >= 0 && exitLoop != true; i++)
     {
-    case 1:
-        insertF();
-        break;
-    case 2:
-        insertE();
-        break;
-    case 3:
-        insertP();
-        break;
-    case 4:
-        insertE();
-        break;
-    default:
-        break;
-    }
-}
 
-void deleteLL()
-{
-    printf("Hello");
-}
-
-void main()
-{
-    int choice;
-
-    while (true)
-    {
-        printf("\n\n[HOME] Select an operation from the list: \n");
-        printf("1.Create Linked List\n2.Display Linked List\n3.Insert element to Linked List\n4.Delete element from Linked List\n5.Exit");
+        printf("\n\n[INSERT]\n\n");
+        printf("1.Insert at front of LL\n2.Insert at end of LL\n3.Insert at particular position\n4.Exit");
         printf("\n\nOperation Number: ");
         scanf("%d", &choice);
 
         switch (choice)
         {
         case 1:
+            printf("\n-----------------------------------------\n");
+            insertF(head);
+            break;
+
+        case 2:
+            printf("\n-----------------------------------------\n");
+            insertE(head);
+            break;
+
+        case 3:
+            printf("\n-----------------------------------------\n");
+            printf("Enter position: ");
+            scanf("%d", &position);
+
+            printf("Insert after/before %d\n\n1.After\n2.Before\n\nOption: ", position);
+            scanf("%d", &direction);
+
+            insertP(head, position, direction);
+            break;
+
+        case 4:
+            exitLoop = true;
+            break;
+
+        default:
+            printf("\n[ERROR] Invalid Operation Number.");
+        }
+    }
+    printf("\n-----------------------------------------\n");
+}
+
+//======================================= DELETE LL =====================================//
+
+void deleteLL()
+{
+    printf("dele");
+    exit(0);
+}
+
+//=======================================MAIN=====================================//
+void main()
+{
+
+    int choice;
+
+    while (true)
+    {
+
+        printf("\n\n[HOME]\n\n");
+        printf("1.Create a LL\n2.Display LL\n3.Insert element to LL\n4.Delete element from LL\n5.Exit");
+        printf("\n\nOperation Number: ");
+        scanf("%d", &choice);
+
+        switch (choice)
+        {
+        case 1:
+            printf("\n-----------------------------------------\n");
             createLL();
             break;
+
         case 2:
+            printf("\n-----------------------------------------\n");
             displayLL();
+            break;
+
         case 3:
+            printf("\n-----------------------------------------\n");
             insertLL();
             break;
+
         case 4:
+            printf("\n-----------------------------------------\n");
             deleteLL();
+            break;
+
         case 5:
             exit(0);
-        default:
-            printf("\nInvalid operation number.\n");
             break;
+
+        default:
+            printf("\n[ERROR] Invalid Operation Number.");
         }
     }
 }
