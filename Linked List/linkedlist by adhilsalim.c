@@ -278,7 +278,34 @@ void insertLL()
     }
     printf("\n-----------------------------------------\n");
 }
+//======================================= DELETE FRONT =====================================//
 
+void deleteF()
+{
+    struct node *tempHead = NULL;
+    tempHead = head;
+    head = head->link;
+    free(tempHead);
+}
+//======================================= DELETE END =====================================//
+
+void deleteE()
+{
+    temp = head;
+
+    while ((temp->link)->link != NULL)
+    {
+        temp = temp->link;
+    }
+
+    free(temp->link);
+}
+
+//======================================= DELETE PARTICULAR =====================================//
+void delteP(int pos)
+{
+    printf("");
+}
 //======================================= DELETE LL =====================================//
 
 void deleteLL()
