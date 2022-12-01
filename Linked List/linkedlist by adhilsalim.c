@@ -286,12 +286,18 @@ void insertLL()
 
 void deleteF()
 {
+    int data;
+
     if (head != NULL)
     {
+        data = head->data;
+
         struct node *tempHead = NULL;
         tempHead = head;
         head = head->link;
         free(tempHead);
+
+        printf("\n%d deleted from linked list.\n", data);
     }
     else
     {
@@ -302,19 +308,36 @@ void deleteF()
 
 void deleteE()
 {
-    temp = head;
-    if (temp->link != NULL)
-    {
-        while ((temp->link)->link != NULL)
-        {
-            temp = temp->link;
-        }
+    int data;
 
-        free(temp->link);
+    if (head != NULL)
+    {
+
+        temp = head;
+
+        if (temp->link != NULL)
+        {
+
+            while ((temp->link)->link != NULL)
+            {
+                temp = temp->link;
+            }
+
+            data = temp->data;
+
+            free(temp->link);
+        }
+        else
+        {
+            data = temp->data;
+
+            free(temp);
+        }
+        printf("\n%d deleted from linked list.\n", data);
     }
     else
     {
-        free(temp);
+        printf("\nLinked List Doesn't Exist.\n");
     }
 }
 
