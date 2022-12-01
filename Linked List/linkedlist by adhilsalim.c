@@ -234,9 +234,7 @@ void insertP(struct node *hd, int pos, int dir)
 void insertLL()
 {
 
-    int choice;
-    int position;
-    int direction;
+    int choice, position, direction;
     bool exitLoop = false;
 
     for (int i = 0; i >= 0 && exitLoop != true; i++)
@@ -285,8 +283,43 @@ void insertLL()
 
 void deleteLL()
 {
-    printf("dele");
-    exit(0);
+    int choice, position;
+
+    while (true)
+    {
+
+        printf("\n\n[DELETE]\n\n");
+        printf("1.Delete from front of LL\n2.Delete from end of LL\n3.Delete from particular position\n4.Exit");
+        printf("\n\nOperation Number: ");
+        scanf("%d", &choice);
+
+        switch (choice)
+        {
+        case 1:
+            printf("\n-----------------------------------------\n");
+            deleteF();
+            break;
+
+        case 2:
+            printf("\n-----------------------------------------\n");
+            deleteE();
+            break;
+
+        case 3:
+            printf("\n-----------------------------------------\n");
+            printf("Enter position: ");
+            scanf("%d", &position);
+            deleteP(position);
+            break;
+
+        case 4:
+            exit(0);
+            break;
+
+        default:
+            printf("\n[ERROR] Invalid Operation Number.");
+        }
+    }
 }
 
 //=======================================MAIN=====================================//
