@@ -61,6 +61,7 @@ void displayLL()
     else
     {
         printf("\nLinked List Doesn't exist.\n");
+        LLExist = false;
     }
     printf("\n-----------------------------------------\n");
 }
@@ -89,6 +90,7 @@ void insertF()
     else
     {
         printf("\nLinked List Doesn't Exist.\n");
+        LLExist = false;
     }
     printf("\n-----------------------------------------\n");
 }
@@ -126,6 +128,7 @@ void insertE()
     else
     {
         printf("\nLinked List Doesn't Exist.\n");
+        LLExist = false;
     }
     printf("\n-----------------------------------------\n");
 }
@@ -226,6 +229,7 @@ void insertP(struct node *hd, int pos, int dir)
     else
     {
         printf("Linked List Doesn't Exist.");
+        LLExist = false;
     }
     printf("\n-----------------------------------------\n");
 }
@@ -302,6 +306,7 @@ void deleteF()
     else
     {
         printf("\nLinked List Doesn't Exist\n");
+        LLExist = false;
     }
 }
 //======================================= DELETE END =====================================//
@@ -338,6 +343,7 @@ void deleteE()
     else
     {
         printf("\nLinked List Doesn't Exist.\n");
+        LLExist = false;
     }
 }
 
