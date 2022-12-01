@@ -239,6 +239,10 @@ void insertLL()
 
     for (int i = 0; i >= 0 && exitLoop != true; i++)
     {
+        if (i > 500)
+        {
+            i = 0;
+        }
 
         printf("\n\n[INSERT]\n\n");
         printf("1.Insert at front of LL\n2.Insert at end of LL\n3.Insert at particular position\n4.Exit");
@@ -282,27 +286,40 @@ void insertLL()
 
 void deleteF()
 {
-    struct node *tempHead = NULL;
-    tempHead = head;
-    head = head->link;
-    free(tempHead);
+    if (head != NULL)
+    {
+        struct node *tempHead = NULL;
+        tempHead = head;
+        head = head->link;
+        free(tempHead);
+    }
+    else
+    {
+        printf("\nLinked List Doesn't Exist\n");
+    }
 }
 //======================================= DELETE END =====================================//
 
 void deleteE()
 {
     temp = head;
-
-    while ((temp->link)->link != NULL)
+    if (temp->link != NULL)
     {
-        temp = temp->link;
-    }
+        while ((temp->link)->link != NULL)
+        {
+            temp = temp->link;
+        }
 
-    free(temp->link);
+        free(temp->link);
+    }
+    else
+    {
+        free(temp);
+    }
 }
 
 //======================================= DELETE PARTICULAR =====================================//
-void delteP(int pos)
+void deleteP(int pos)
 {
     printf("");
 }
@@ -311,9 +328,14 @@ void delteP(int pos)
 void deleteLL()
 {
     int choice, position;
+    bool exitLoop = false;
 
-    while (true)
+    for (int i = 0; i >= 0 && exitLoop != true; i++)
     {
+        if (i > 500)
+        {
+            i = 0;
+        }
 
         printf("\n\n[DELETE]\n\n");
         printf("1.Delete from front of LL\n2.Delete from end of LL\n3.Delete from particular position\n4.Exit");
@@ -340,7 +362,7 @@ void deleteLL()
             break;
 
         case 4:
-            exit(0);
+            exitLoop = true;
             break;
 
         default:
