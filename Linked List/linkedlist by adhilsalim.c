@@ -367,7 +367,7 @@ void deleteP(int pos)
     if (head != NULL)
     {
 
-        if (head->link == NULL)
+        if (head->data == pos)
         {
             deleteF();
         }
@@ -379,7 +379,14 @@ void deleteP(int pos)
 
             while ((temp->link)->data != pos && temp->link != NULL)
             {
-                temp = temp->link;
+                if ((temp->link)->link == NULL && (temp->link)->data != pos)
+                {
+                    break;
+                }
+                else
+                {
+                    temp = temp->link;
+                }
             }
 
             if (temp->link == NULL)
