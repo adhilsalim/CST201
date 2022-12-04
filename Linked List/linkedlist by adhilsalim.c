@@ -44,15 +44,15 @@ void displayLL()
 
     if (head != NULL)
     {
+        struct node *tempHead = NULL;
+        tempHead = head;
 
-        temp = head;
-
-        while (temp != NULL)
+        while (tempHead != NULL)
         {
-            printf("%d", temp->data);
-            temp = temp->link;
+            printf("%d", tempHead->data);
+            tempHead = tempHead->link;
 
-            if (temp != NULL)
+            if (tempHead != NULL)
             {
                 printf(" - ");
             }
@@ -298,8 +298,20 @@ void deleteF()
 
         struct node *tempHead = NULL;
         tempHead = head;
-        head = head->link;
-        free(tempHead);
+
+        if (tempHead->link != NULL)
+        {
+            // printf("multiple node case");
+            head = head->link;
+            free(tempHead);
+        }
+        else
+        {
+            // printf("one node case");
+            data = tempHead->data;
+            free(tempHead);
+            head = NULL;
+        }
 
         printf("\n%d deleted from linked list.\n", data);
     }
@@ -328,15 +340,15 @@ void deleteE()
                 temp = temp->link;
             }
 
-            data = temp->data;
-
+            data = (temp->link)->data;
             free(temp->link);
+            temp->link = NULL;
         }
         else
         {
             data = temp->data;
-
             free(temp);
+            head = NULL;
         }
         printf("\n%d deleted from linked list.\n", data);
     }
