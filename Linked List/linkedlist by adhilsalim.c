@@ -390,18 +390,13 @@ void deleteP(int pos)
 
             temp = head;
 
-            while ((temp->link)->data != pos && temp->link != NULL)
+            if (present == true)
             {
+                while ((temp->link)->data != pos && temp->link != NULL)
+                {
 
-                temp = temp->link;
-            }
-
-            if (temp->link == NULL)
-            {
-                printf("\nElement %d is not present in Linked List.", pos);
-            }
-            else
-            {
+                    temp = temp->link;
+                }
                 nodeToDelete = temp->link;
                 data = nodeToDelete->data;
 
@@ -409,6 +404,10 @@ void deleteP(int pos)
                 free(nodeToDelete);
 
                 printf("\n%d deleted from linked list.\n", data);
+            }
+            else
+            {
+                printf("\nElement %d is not present in Linked List.", pos);
             }
         }
     }
