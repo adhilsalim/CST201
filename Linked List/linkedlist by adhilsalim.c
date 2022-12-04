@@ -363,6 +363,7 @@ void deleteE()
 void deleteP(int pos)
 {
     int data;
+    bool present = false;
 
     if (head != NULL)
     {
@@ -377,16 +378,22 @@ void deleteP(int pos)
             temp = head;
             struct node *nodeToDelete = NULL;
 
-            while ((temp->link)->data != pos && temp->link != NULL)
+            while (temp != NULL)
             {
-                if ((temp->link)->link == NULL && (temp->link)->data != pos)
+                if (temp->data == pos)
                 {
+                    present = true;
                     break;
                 }
-                else
-                {
-                    temp = temp->link;
-                }
+                temp = temp->link;
+            }
+
+            temp = head;
+
+            while ((temp->link)->data != pos && temp->link != NULL)
+            {
+
+                temp = temp->link;
             }
 
             if (temp->link == NULL)
