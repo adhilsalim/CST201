@@ -377,18 +377,25 @@ void deleteP(int pos)
             temp = head;
             struct node *nodeToDelete = NULL;
 
-            while ((temp->link)->data != pos)
+            while ((temp->link)->data != pos && temp->link != NULL)
             {
                 temp = temp->link;
             }
 
-            nodeToDelete = temp->link;
-            data = nodeToDelete->data;
+            if (temp->link == NULL)
+            {
+                printf("\nElement %d is not present in Linked List.", pos);
+            }
+            else
+            {
+                nodeToDelete = temp->link;
+                data = nodeToDelete->data;
 
-            temp->link = (temp->link)->link;
-            free(nodeToDelete);
+                temp->link = (temp->link)->link;
+                free(nodeToDelete);
 
-            printf("\n%d deleted from linked list.\n", data);
+                printf("\n%d deleted from linked list.\n", data);
+            }
         }
     }
     else
