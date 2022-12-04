@@ -362,7 +362,40 @@ void deleteE()
 //======================================= DELETE PARTICULAR =====================================//
 void deleteP(int pos)
 {
-    printf("");
+    int data;
+
+    if (head != NULL)
+    {
+
+        if (head->link == NULL)
+        {
+            deleteF();
+        }
+        else
+        {
+
+            temp = head;
+            struct node *nodeToDelete = NULL;
+
+            while ((temp->link)->data != pos)
+            {
+                temp = temp->link;
+            }
+
+            nodeToDelete = temp->link;
+            data = nodeToDelete->data;
+
+            temp->link = (temp->link)->link;
+            free(nodeToDelete);
+
+            printf("\n%d deleted from linked list.\n", data);
+        }
+    }
+    else
+    {
+        printf("\nLinked List Doesn't Exist.\n");
+        LLExist = false;
+    }
 }
 //======================================= DELETE LL =====================================//
 
