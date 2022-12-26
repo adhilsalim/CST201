@@ -3,7 +3,7 @@
   <h3 align="center">CST201 DS</h3>
 
   <p align="center">
-    An awesome repository for data structure CST201 course as per the KTU 2019 syllabus.
+    An awesome repository for data structure (CST201)
     <br/>
     <br/>
     <a href="https://github.com/adhilsalim/CST201/issues">Report Bug</a>
@@ -28,7 +28,7 @@
 
 Hi there 👋
 This is a repository for data structure course (course code: CST201) as per the KTU 2019 syllabus.
-This repo contains almost all lab programs for data structure.
+This repo contains almost all lab programs for data structure lab.
 
 Don't forget to give a ⭐ if you like it.
 
