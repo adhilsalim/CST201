@@ -45,9 +45,9 @@ You can download all the contents of the repository as .zip file or you can clon
 You are free to download, modify the contents of the repository on sharing proper credit(s) must be given along with.
 
 The credit must include the following:
-name and GitHub username of the owner of the repo
-a link to the repo
-name and GitHub username of the program author(s) [if applicable]
+1. name and GitHub username of the owner of the repo
+2. a link to the repo
+3. name and GitHub username of the program author(s) [if applicable]
 
 ## Roadmap
 
