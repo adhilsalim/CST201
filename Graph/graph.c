@@ -1,4 +1,7 @@
 #include <stdio.h>
+void DFS(int vertex)
+{
+}
 
 void main()
 {
@@ -51,4 +54,6 @@ void main()
     int start_vertex;
     printf("enter node you want to start: ");
     scanf("%d", &start_vertex);
+
+    DFS(start_vertex);
 }
