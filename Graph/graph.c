@@ -2,7 +2,7 @@
 
 void main()
 {
-    int TOTAL_VERTICES = 0;
+    int TOTAL_VERTICES = 0, TOTAL_EDGES = 0;
 
     printf("No of vertices: ");
     scanf("%d", &TOTAL_VERTICES);
@@ -19,10 +19,13 @@ void main()
 
     int vertex_one, vertex_two;
 
+    printf("No of edges: ");
+    scanf("%d", &TOTAL_EDGES);
+
     printf("\nEnter edges in the order (A,B):\n");
 
     int k = 0;
-    while (k < TOTAL_VERTICES)
+    while (k < TOTAL_EDGES)
     {
         printf("\n(A,B) enter value for A: ");
         scanf("%d", &vertex_one);
