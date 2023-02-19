@@ -17,6 +17,14 @@ void main()
         }
     }
 
+    int vertex_one, vertex_two;
+
+    printf("\nEnter edges in the order (A,B):\n");
+    printf("\n(A,B) enter value for A: ");
+    scanf("%d", &vertex_one);
+    printf("\n(%d,B) enter value for A: ", vertex_one);
+    scanf("%d", &vertex_two);
+
     for (int i = 0; i <= TOTAL_VERTICES; i++)
     {
         for (int j = 0; j <= TOTAL_VERTICES; j++)
