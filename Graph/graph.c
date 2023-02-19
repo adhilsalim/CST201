@@ -29,6 +29,9 @@ void main()
         printf("\n(%d,B) enter value for A: ", vertex_one);
         scanf("%d", &vertex_two);
         printf("adding edge (%d,%d)", vertex_one, vertex_two);
+
+        GRAPH_MATRIX[vertex_one][vertex_two] = 1;
+
         k++;
     }
 
