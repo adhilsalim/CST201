@@ -9,9 +9,9 @@ void main()
 
     int GRAPH_MATRIX[TOTAL_VERTICES][TOTAL_VERTICES];
 
-    for (int i = 0; i <= TOTAL_VERTICES; i++)
+    for (int i = 0; i < TOTAL_VERTICES; i++)
     {
-        for (int j = 0; j <= TOTAL_VERTICES; j++)
+        for (int j = 0; j < TOTAL_VERTICES; j++)
         {
             GRAPH_MATRIX[i][j] = 0;
         }
@@ -31,16 +31,17 @@ void main()
         scanf("%d", &vertex_one);
         printf("\n(%d,B) enter value for A: ", vertex_one);
         scanf("%d", &vertex_two);
-        printf("adding edge (%d,%d)", vertex_one, vertex_two);
+        printf("\nadding edge (%d,%d)\n", vertex_one, vertex_two);
 
         GRAPH_MATRIX[vertex_one][vertex_two] = 1;
 
         k++;
     }
 
-    for (int i = 0; i <= TOTAL_VERTICES; i++)
+    printf("\nAdjacency matrix: \n");
+    for (int i = 0; i < TOTAL_VERTICES; i++)
     {
-        for (int j = 0; j <= TOTAL_VERTICES; j++)
+        for (int j = 0; j < TOTAL_VERTICES; j++)
         {
             printf("%d ", GRAPH_MATRIX[i][j]);
         }
