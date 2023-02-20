@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 
 int CONST_VERTEX = 0;
 int TOP = -1;
@@ -53,14 +54,17 @@ int deQueue(int Q[])
     }
 }
 
-void display(int stack[])
+void display(int array[])
 {
-    printf("\nSTACK: ");
-    for (int i = 0; i <= TOP; i++)
+    if (FRONT != -1 && REAR != -1)
     {
-        printf("%d ", stack[i]);
+        printf("\nQ: ");
+        for (int i = FRONT; i <= REAR; i++)
+        {
+            printf("%d ", array[i]);
+        }
+        printf("\n");
     }
-    printf("\n");
 }
 
 int pop(int stack[])
@@ -125,6 +129,7 @@ void BFS(int Q[], int graph[][CONST_VERTEX], int visit[], int vertex)
                 break;
             }
         }
+        exit(0);
     }
 
     for (int i = 0; i < CONST_VERTEX; i++)
@@ -204,5 +209,23 @@ void main()
     }
 
     printf("\nBFS: ");
-    BFS(STACK, GRAPH_MATRIX, VISIT, start_vertex);
+    // BFS(STACK, GRAPH_MATRIX, VISIT, start_vertex);
+    enQueue(QUEUE, 3);
+    enQueue(QUEUE, 4);
+    deQueue(QUEUE);
+    enQueue(QUEUE, 5);
+    enQueue(QUEUE, 6);
+    deQueue(QUEUE);
+    enQueue(QUEUE, 7);
+    deQueue(QUEUE);
+    deQueue(QUEUE);
+    deQueue(QUEUE);
+    deQueue(QUEUE);
+    deQueue(QUEUE);
+    enQueue(QUEUE, 7);
+    enQueue(QUEUE, 7);
+    enQueue(QUEUE, 7);
+    enQueue(QUEUE, 7);
+    enQueue(QUEUE, 7);
+    enQueue(QUEUE, 7);
 }
