@@ -25,15 +25,21 @@ void DFS(int stack[], int graph[][CONST_VERTEX], int visit[], int vertex)
 {
     visit[vertex] = 1;
     push(stack, vertex);
-    printf("%d ", pop(stack));
 
-    int j = vertex;
-
-    for (int i = 0; i < sizeof(vertex) / 4; i++)
+    while (TOP != -1)
     {
-        if (graph[j][i] == 1 && visit[i] != 1)
+        printf("%d ", pop(stack));
+        int j = vertex;
+
+        // printf("%d", sizeof(vertex) / 4);
+
+        for (int i = 0; i < CONST_VERTEX; i++)
         {
-            DFS(stack, graph, visit, visit[i]);
+            if (graph[j][i] == 1 && visit[i] != 1)
+            {
+                visit[i] = 1;
+                push(stack, visit[i]);
+            }
         }
     }
 }
