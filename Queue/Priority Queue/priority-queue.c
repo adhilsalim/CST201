@@ -42,6 +42,23 @@ void insert(int e, int p)
 
 int delete()
 {
+    if (REAR == -1 && FRONT == -1)
+    {
+        printf("DELETION NOT POSSIBLE");
+    }
+    else if (REAR == FRONT)
+    {
+        int element = PQ[0][FRONT];
+        FRONT = -1;
+        REAR = -1;
+        return element;
+    }
+    else
+    {
+        int element = PQ[0][FRONT];
+        FRONT++;
+        return element;
+    }
 }
 
 void display()
