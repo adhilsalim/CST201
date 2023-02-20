@@ -243,7 +243,7 @@ void main()
             reset_visit(VISIT);
 
             printf("\nBFS: ");
-            BFS(STACK, GRAPH_MATRIX, VISIT, start_vertex);
+            BFS(QUEUE, GRAPH_MATRIX, VISIT, start_vertex);
         }
         RUN_MAIN = false;
     }
