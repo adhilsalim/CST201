@@ -21,6 +21,41 @@ void insert();
 void delete();
 void traverse();
 
+void traverse()
+{
+    int choice;
+    bool traversalMenu = true;
+
+    while (traversalMenu)
+    {
+        printf("\n\nSelect an operation: ");
+        printf("\n1.Preorder\n2.Inorder\n3.Postorder\n4.Exit");
+        printf("\n\noperation No: ");
+        scanf("%d", &choice);
+
+        switch (choice)
+        {
+        case 1:
+            printf("\nPREORDER:  ");
+            preOrder(root);
+            break;
+        case 2:
+            printf("\nINORDER:  ");
+            inOrder(root);
+            break;
+        case 3:
+            printf("\nPOSTORDER:  ");
+            postOrder(root);
+            break;
+        case 4:
+            traversalMenu = false;
+            break;
+        default:
+            printf("\nInvalid operation number.\n");
+        }
+    }
+}
+
 void insert()
 {
     int data;
