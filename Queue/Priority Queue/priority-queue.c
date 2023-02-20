@@ -8,11 +8,22 @@ void insert(int, int);
 
 void insert(int e, int p)
 {
-    if (REAR = -1 && FRONT - 1)
+    if (REAR == -1 && FRONT == -1)
     {
         REAR++;
         FRONT++;
-        PQ[REAR] =
+        PQ[0][REAR] = e;
+        PQ[1][REAR] = p;
+    }
+    else if (REAR == 9)
+    {
+        printf("\nINSERTION NOT POSSIBLE\n");
+    }
+    else
+    {
+        REAR++;
+        PQ[0][REAR] = e;
+        PQ[1][REAR] = p;
     }
 }
 
