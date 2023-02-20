@@ -1,6 +1,26 @@
 #include <stdio.h>
-void DFS(int vertex)
+
+int pop(int[]);
+void push(int[], int);
+
+int TOP = -1;
+
+int pop(int stack[])
 {
+    int element = stack[TOP];
+    TOP--;
+    return element;
+}
+
+void push(int stack[], int element)
+{
+    TOP++;
+    stack[TOP] = element;
+}
+
+void DFS(, int vertex)
+{
+    push(stac)
 }
 
 void main()
@@ -11,6 +31,7 @@ void main()
     scanf("%d", &TOTAL_VERTICES);
 
     int GRAPH_MATRIX[TOTAL_VERTICES][TOTAL_VERTICES];
+    int STACK[TOTAL_VERTICES];
 
     for (int i = 0; i < TOTAL_VERTICES; i++)
     {
@@ -55,5 +76,5 @@ void main()
     printf("enter node you want to start: ");
     scanf("%d", &start_vertex);
 
-    DFS(start_vertex);
+    DFS(STACK, start_vertex);
 }
