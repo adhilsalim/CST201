@@ -88,7 +88,7 @@ void main()
     {
 
         int choice, element, priority;
-        printf("[1]INSERT [2]DELETE [3]DISPLAY [4]EXIT\n\nchoice: ");
+        printf("\n\n[1]INSERT [2]DELETE [3]DISPLAY [4]EXIT\nchoice: ");
         scanf("%d", &choice);
 
         switch (choice)
@@ -96,7 +96,7 @@ void main()
         case 1:
             printf("\nenter element: ");
             scanf("%d", &element);
-            printf("\nenter priority: ");
+            printf("enter priority for %d: ", element);
             scanf("%d", &priority);
             insert(element, priority);
             break;
