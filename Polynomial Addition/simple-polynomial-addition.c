@@ -2,6 +2,7 @@
 
 int POLYNOMIAL_ONE[2][10];
 int POLYNOMIAL_TWO[2][10];
+int POLYNOMIAL_SUM[2][20];
 int TOTAL_TERMS_ONE = 0, TOTAL_TERMS_TWO = 0;
 
 void main()
@@ -57,5 +58,33 @@ void main()
         {
             printf(" + ");
         }
+    }
+
+    int i = 0, j = 0, k = 0;
+
+    while (i != TOTAL_TERMS_ONE - 1 && j != TOTAL_TERMS_TWO - 1)
+    {
+        if (POLYNOMIAL_ONE[1][i] == POLYNOMIAL_TWO[1][j])
+        {
+
+            POLYNOMIAL_SUM[0][k] = POLYNOMIAL_ONE[0][i] + POLYNOMIAL_TWO[0][j];
+            POLYNOMIAL_SUM[1][k] = POLYNOMIAL_ONE[1][i];
+            i++;
+            j++;
+        }
+        else if (POLYNOMIAL_ONE[1][i] > POLYNOMIAL_TWO[1][j])
+        {
+            POLYNOMIAL_SUM[0][k] = POLYNOMIAL_ONE[0][i];
+            POLYNOMIAL_SUM[1][k] = POLYNOMIAL_ONE[1][i];
+            i++;
+        }
+        else
+        {
+            POLYNOMIAL_SUM[0][k] = POLYNOMIAL_TWO[0][j];
+            POLYNOMIAL_SUM[1][k] = POLYNOMIAL_TWO[1][j];
+            j++;
+        }
+
+        k++;
     }
 }
