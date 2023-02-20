@@ -1,12 +1,22 @@
 #include <stdio.h>
 
 int CONST_VERTEX = 0;
+int TOP = -1;
 
 int pop(int[]);
 void push(int[], int);
 void DFS(int stack[], int graph[][CONST_VERTEX], int visit[], int vertex);
+void display(int[]);
 
-int TOP = -1;
+void display(int stack[])
+{
+    printf("\nSTACK: ");
+    for (int i = 0; i <= TOP; i++)
+    {
+        printf("%d ", stack[i]);
+    }
+    printf("\n");
+}
 
 int pop(int stack[])
 {
@@ -26,8 +36,11 @@ void DFS(int stack[], int graph[][CONST_VERTEX], int visit[], int vertex)
     visit[vertex] = 1;
     push(stack, vertex);
 
+    display(stack);
+
     while (TOP != -1)
     {
+        display(stack);
         int j = pop(stack);
         printf("%d ", j);
 
@@ -37,9 +50,11 @@ void DFS(int stack[], int graph[][CONST_VERTEX], int visit[], int vertex)
             {
                 visit[i] = 1;
                 push(stack, visit[i]);
+                display(stack);
+                break;
             }
         }
-    }
+        }
 }
 
 void main()
