@@ -18,9 +18,10 @@ void push(int stack[], int element)
     stack[TOP] = element;
 }
 
-void DFS(, int vertex)
+void DFS(int stack[], int vertex)
 {
-    push(stac)
+
+    push(stack, vertex);
 }
 
 void main()
@@ -32,6 +33,7 @@ void main()
 
     int GRAPH_MATRIX[TOTAL_VERTICES][TOTAL_VERTICES];
     int STACK[TOTAL_VERTICES];
+    int VISIT[TOTAL_VERTICES];
 
     for (int i = 0; i < TOTAL_VERTICES; i++)
     {
