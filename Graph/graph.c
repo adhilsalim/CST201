@@ -28,10 +28,8 @@ void DFS(int stack[], int graph[][CONST_VERTEX], int visit[], int vertex)
 
     while (TOP != -1)
     {
-        printf("%d ", pop(stack));
-        int j = vertex;
-
-        // printf("%d", sizeof(vertex) / 4);
+        int j = pop(stack);
+        printf("%d ", j);
 
         for (int i = 0; i < CONST_VERTEX; i++)
         {
