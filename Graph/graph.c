@@ -33,8 +33,6 @@ void enQueue(int Q[], int element)
         REAR++;
         Q[REAR] = element;
     }
-
-    display(Q);
 }
 
 int deQueue(int Q[])
@@ -49,14 +47,12 @@ int deQueue(int Q[])
         element = Q[FRONT];
         FRONT = -1;
         REAR = -1;
-        display(Q);
         return element;
     }
     else
     {
         element = Q[FRONT];
         FRONT++;
-        display(Q);
         return element;
     }
 }
@@ -136,7 +132,6 @@ void BFS(int Q[], int graph[][CONST_VERTEX], int visit[], int vertex)
                 break;
             }
         }
-        exit(0);
     }
 
     for (int i = 0; i < CONST_VERTEX; i++)
