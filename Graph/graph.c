@@ -119,5 +119,17 @@ void main()
     printf("enter node you want to start: ");
     scanf("%d", &start_vertex);
 
+    printf("\nDFS: ");
     DFS(STACK, GRAPH_MATRIX, VISIT, start_vertex);
+
+    for (int i = 0; i < TOTAL_VERTICES; i++)
+    {
+        for (int j = 0; j < TOTAL_VERTICES; j++)
+        {
+            VISIT[i] = 0;
+        }
+    }
+
+    printf("\nBFS: ");
+    BFS(STACK, GRAPH_MATRIX, VISIT, start_vertex);
 }
