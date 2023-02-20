@@ -33,6 +33,8 @@ void enQueue(int Q[], int element)
         REAR++;
         Q[REAR] = element;
     }
+
+    display(Q);
 }
 
 int deQueue(int Q[])
@@ -52,6 +54,8 @@ int deQueue(int Q[])
         return Q[FRONT];
         FRONT++;
     }
+
+    display(Q);
 }
 
 void display(int array[])
@@ -208,42 +212,27 @@ void main()
         VISIT[i] = 0;
     }
 
-    printf("\nBFS: ");
-    // BFS(STACK, GRAPH_MATRIX, VISIT, start_vertex);
+    // printf("\nBFS: ");
+    //  BFS(STACK, GRAPH_MATRIX, VISIT, start_vertex);
     enQueue(QUEUE, 3);
-    display(QUEUE);
-    enQueue(QUEUE, 4);
-    display(QUEUE);
     deQueue(QUEUE);
-    display(QUEUE);
+
     enQueue(QUEUE, 5);
-    display(QUEUE);
     enQueue(QUEUE, 6);
-    display(QUEUE);
+
     deQueue(QUEUE);
-    display(QUEUE);
     enQueue(QUEUE, 7);
-    display(QUEUE);
+
     deQueue(QUEUE);
-    display(QUEUE);
     deQueue(QUEUE);
-    display(QUEUE);
     deQueue(QUEUE);
-    display(QUEUE);
     deQueue(QUEUE);
-    display(QUEUE);
     deQueue(QUEUE);
-    display(QUEUE);
-    enQueue(QUEUE, 7);
-    display(QUEUE);
-    enQueue(QUEUE, 7);
-    display(QUEUE);
-    enQueue(QUEUE, 7);
-    display(QUEUE);
-    enQueue(QUEUE, 7);
-    display(QUEUE);
-    enQueue(QUEUE, 7);
-    display(QUEUE);
-    enQueue(QUEUE, 7);
-    display(QUEUE);
+
+    enQueue(QUEUE, 1);
+    enQueue(QUEUE, 2);
+    enQueue(QUEUE, 3);
+    enQueue(QUEUE, 4);
+    enQueue(QUEUE, 5);
+    enQueue(QUEUE, 6);
 }
