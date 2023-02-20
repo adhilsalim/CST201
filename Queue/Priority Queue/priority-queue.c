@@ -5,6 +5,8 @@ int PQ[2][10];
 int REAR = -1, FRONT = -1;
 
 void insert(int, int);
+int delete();
+void display();
 
 void insert(int e, int p)
 {
@@ -86,14 +88,15 @@ void main()
         {
         case 1:
             int element, priority;
-            printf("enter element: ");
+            printf("\nenter element: ");
             scanf("%d", &element);
-            printf("enter element: ");
+            printf("\nenter priority: ");
             scanf("%d", &priority);
             insert(element, priority);
             break;
         case 2:
             int element = delete ();
+            printf("\n%d deleted from PQ", element);
             break;
         case 3:
             display();
