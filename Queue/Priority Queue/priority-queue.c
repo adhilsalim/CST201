@@ -63,6 +63,12 @@ int delete()
 
 void display()
 {
+    printf("\n\n");
+    for (int i = FRONT; i <= REAR; i++)
+    {
+        printf(" [%d,%d] ", PQ[0][i], PQ[1][i]);
+    }
+    printf("\n");
 }
 
 void main()
