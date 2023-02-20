@@ -111,8 +111,8 @@ void main()
     printf("\nPOLYNOMIAL SUM: ");
     for (int i = 0; i <= k; i++)
     {
-        printf("%dX^%d", POLYNOMIAL_TWO[0][i], POLYNOMIAL_TWO[1][i]);
-        if (i != TOTAL_TERMS_TWO - 1)
+        printf("%dX^%d", POLYNOMIAL_SUM[0][i], POLYNOMIAL_SUM[1][i]);
+        if (i != k)
         {
             printf(" + ");
         }
