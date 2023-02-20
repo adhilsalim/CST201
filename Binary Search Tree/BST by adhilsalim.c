@@ -15,6 +15,7 @@ struct node *root = NULL;
 struct node *temp = NULL;
 struct node *current = NULL;
 struct node *parent = NULL;
+struct node *new_node = NULL;
 
 void insert();
 void delete();
@@ -28,13 +29,13 @@ void insert()
 
     if (root == NULL)
     {
-        struct node *new_node = (struct node *)malloc(sizeof(struct node));
-
+        new_node = (struct node *)malloc(sizeof(struct node));
         new_node->data = data;
         new_node->leftChild = NULL;
         new_node->rightChild = NULL;
 
         root = new_node;
+        printf("\nROOT CREATED.\n");
     }
     else
     {
@@ -46,14 +47,32 @@ void insert()
 
             if (data > current->data)
             {
+                current = current->rightChild;
             }
             else if (data < current->data)
             {
+                current = current->leftChild;
             }
             else
             {
                 printf("\nDUPLICATE DATA IS NOT ALLOWED. INSERTION DENIED.\n");
             }
+        }
+
+        new_node = (struct node *)malloc(sizeof(struct node));
+        new_node->data = data;
+        new_node->leftChild = NULL;
+        new_node->rightChild = NULL;
+
+        if (data < parent->data)
+        {
+            parent->leftChild = new_node;
+            printf("\nNEW NODE ADDED AS LEFT CHILD\n");
+        }
+        else
+        {
+            parent->rightChild = new_node;
+            printf("\nNEW NODE ADDED AS RIGHT CHILD\n");
         }
     }
 }
