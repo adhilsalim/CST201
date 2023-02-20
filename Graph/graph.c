@@ -2,6 +2,7 @@
 
 int pop(int[]);
 void push(int[], int);
+void DFS(int stack[], int visit[], int vertex);
 
 int TOP = -1;
 
@@ -18,10 +19,16 @@ void push(int stack[], int element)
     stack[TOP] = element;
 }
 
-void DFS(int stack[], int vertex)
+void DFS(int stack[], int visit[], int vertex)
 {
-
+    visit[vertex] = 1;
     push(stack, vertex);
+    printf("%d ", pop(stack));
+
+    for (int i = 0; i < sizeof(vertex) / 4; i++)
+    {
+        if ()
+    }
 }
 
 void main()
@@ -78,5 +85,5 @@ void main()
     printf("enter node you want to start: ");
     scanf("%d", &start_vertex);
 
-    DFS(STACK, start_vertex);
+    DFS(STACK, GRAPH_MATRIX, VISIT, start_vertex);
 }
