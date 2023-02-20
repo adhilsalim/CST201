@@ -39,23 +39,28 @@ void enQueue(int Q[], int element)
 
 int deQueue(int Q[])
 {
+    int element;
     if (REAR == -1 && FRONT == -1)
     {
         printf("\nDELETION NOT POSSIBLE\n");
     }
     else if (REAR == FRONT)
     {
-        return Q[FRONT];
+        element = Q[FRONT];
+        // printf("\n%d deleted from Q\n", Q[FRONT]);
         FRONT = -1;
         REAR = -1;
+        display(Q);
+        return element;
     }
     else
     {
-        return Q[FRONT];
+        element = Q[FRONT];
+        // printf("\n%d deleted from Q\n", Q[FRONT]);
         FRONT++;
+        display(Q);
+        return element;
     }
-
-    display(Q);
 }
 
 void display(int array[])
