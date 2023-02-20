@@ -62,11 +62,10 @@ void main()
 
     int i = 0, j = 0, k = 0;
 
-    while (i != TOTAL_TERMS_ONE - 1 && j != TOTAL_TERMS_TWO - 1)
+    while (i < TOTAL_TERMS_ONE && j < TOTAL_TERMS_TWO)
     {
         if (POLYNOMIAL_ONE[1][i] == POLYNOMIAL_TWO[1][j])
         {
-
             POLYNOMIAL_SUM[0][k] = POLYNOMIAL_ONE[0][i] + POLYNOMIAL_TWO[0][j];
             POLYNOMIAL_SUM[1][k] = POLYNOMIAL_ONE[1][i];
             i++;
@@ -88,7 +87,7 @@ void main()
         k++;
     }
 
-    while (i != TOTAL_TERMS_ONE - 1)
+    while (i < TOTAL_TERMS_ONE)
     {
         POLYNOMIAL_SUM[0][k] = POLYNOMIAL_ONE[0][i];
         POLYNOMIAL_SUM[1][k] = POLYNOMIAL_ONE[1][i];
@@ -96,7 +95,7 @@ void main()
         k++;
     }
 
-    while (j != TOTAL_TERMS_ONE - 1)
+    while (j < TOTAL_TERMS_TWO)
     {
         POLYNOMIAL_SUM[0][k] = POLYNOMIAL_TWO[0][j];
         POLYNOMIAL_SUM[1][k] = POLYNOMIAL_TWO[1][j];
