@@ -87,4 +87,30 @@ void main()
 
         k++;
     }
+
+    while (i != TOTAL_TERMS_ONE - 1)
+    {
+        POLYNOMIAL_SUM[0][k] = POLYNOMIAL_ONE[0][i];
+        POLYNOMIAL_SUM[1][k] = POLYNOMIAL_ONE[1][i];
+        i++;
+        k++;
+    }
+
+    while (j != TOTAL_TERMS_ONE - 1)
+    {
+        POLYNOMIAL_SUM[0][k] = POLYNOMIAL_TWO[0][j];
+        POLYNOMIAL_SUM[1][k] = POLYNOMIAL_TWO[1][j];
+        j++;
+        k++;
+    }
+
+    printf("\nPOLYNOMIAL SUM: ");
+    for (int i = 0; i <= k; i++)
+    {
+        printf("%dX^%d", POLYNOMIAL_TWO[0][i], POLYNOMIAL_TWO[1][i]);
+        if (i != TOTAL_TERMS_TWO - 1)
+        {
+            printf(" + ");
+        }
+    }
 }
