@@ -47,7 +47,6 @@ int deQueue(int Q[])
     else if (REAR == FRONT)
     {
         element = Q[FRONT];
-        // printf("\n%d deleted from Q\n", Q[FRONT]);
         FRONT = -1;
         REAR = -1;
         display(Q);
@@ -56,7 +55,6 @@ int deQueue(int Q[])
     else
     {
         element = Q[FRONT];
-        // printf("\n%d deleted from Q\n", Q[FRONT]);
         FRONT++;
         display(Q);
         return element;
@@ -217,27 +215,6 @@ void main()
         VISIT[i] = 0;
     }
 
-    // printf("\nBFS: ");
-    //  BFS(STACK, GRAPH_MATRIX, VISIT, start_vertex);
-    enQueue(QUEUE, 3);
-    deQueue(QUEUE);
-
-    enQueue(QUEUE, 5);
-    enQueue(QUEUE, 6);
-
-    deQueue(QUEUE);
-    enQueue(QUEUE, 7);
-
-    deQueue(QUEUE);
-    deQueue(QUEUE);
-    deQueue(QUEUE);
-    deQueue(QUEUE);
-    deQueue(QUEUE);
-
-    enQueue(QUEUE, 1);
-    enQueue(QUEUE, 2);
-    enQueue(QUEUE, 3);
-    enQueue(QUEUE, 4);
-    enQueue(QUEUE, 5);
-    enQueue(QUEUE, 6);
+    printf("\nBFS: ");
+    BFS(STACK, GRAPH_MATRIX, VISIT, start_vertex);
 }
