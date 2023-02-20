@@ -1,8 +1,10 @@
 #include <stdio.h>
 
+int CONST_VERTEX = 0;
+
 int pop(int[]);
 void push(int[], int);
-void DFS(int stack[], int visit[], int vertex);
+void DFS(int stack[], int graph[][CONST_VERTEX], int visit[], int vertex);
 
 int TOP = -1;
 
@@ -19,15 +21,20 @@ void push(int stack[], int element)
     stack[TOP] = element;
 }
 
-void DFS(int stack[], int visit[], int vertex)
+void DFS(int stack[], int graph[][CONST_VERTEX], int visit[], int vertex)
 {
     visit[vertex] = 1;
     push(stack, vertex);
     printf("%d ", pop(stack));
 
+    int j = vertex;
+
     for (int i = 0; i < sizeof(vertex) / 4; i++)
     {
-        if ()
+        if (graph[j][i] == 1 && visit[i] != 1)
+        {
+            DFS(stack, graph, visit, visit[i]);
+        }
     }
 }
 
@@ -37,6 +44,8 @@ void main()
 
     printf("No of vertices: ");
     scanf("%d", &TOTAL_VERTICES);
+
+    CONST_VERTEX = TOTAL_VERTICES;
 
     int GRAPH_MATRIX[TOTAL_VERTICES][TOTAL_VERTICES];
     int STACK[TOTAL_VERTICES];
@@ -67,6 +76,7 @@ void main()
         printf("\nadding edge (%d,%d)\n", vertex_one, vertex_two);
 
         GRAPH_MATRIX[vertex_one][vertex_two] = 1;
+        GRAPH_MATRIX[vertex_two][vertex_one] = 1;
 
         k++;
     }
