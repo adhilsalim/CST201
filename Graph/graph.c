@@ -200,10 +200,7 @@ void main()
 
     for (int i = 0; i < TOTAL_VERTICES; i++)
     {
-        for (int j = 0; j < TOTAL_VERTICES; j++)
-        {
-            VISIT[i] = 0;
-        }
+        VISIT[i] = 0;
     }
 
     printf("\nBFS: ");
