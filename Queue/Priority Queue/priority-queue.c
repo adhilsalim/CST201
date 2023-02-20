@@ -65,12 +65,19 @@ int delete()
 
 void display()
 {
-    printf("\n\n");
-    for (int i = FRONT; i <= REAR; i++)
+    if (FRONT != -1 && REAR != -1)
     {
-        printf(" [%d,%d] ", PQ[0][i], PQ[1][i]);
+        printf("\n\n");
+        for (int i = FRONT; i <= REAR; i++)
+        {
+            printf("[%d,%d] ", PQ[0][i], PQ[1][i]);
+        }
+        printf("\n");
     }
-    printf("\n");
+    else
+    {
+        printf("\nNOTHING TO DISPLAY\n");
+    }
 }
 
 void main()
@@ -80,14 +87,13 @@ void main()
     while (!EXIT_LOOP)
     {
 
-        int choice;
+        int choice, element, priority;
         printf("[1]INSERT [2]DELETE [3]DISPLAY [4]EXIT\n\nchoice: ");
         scanf("%d", &choice);
 
         switch (choice)
         {
         case 1:
-            int element, priority;
             printf("\nenter element: ");
             scanf("%d", &element);
             printf("\nenter priority: ");
@@ -95,7 +101,7 @@ void main()
             insert(element, priority);
             break;
         case 2:
-            int element = delete ();
+            element = delete ();
             printf("\n%d deleted from PQ", element);
             break;
         case 3:
