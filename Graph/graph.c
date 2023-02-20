@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <stdbool.h>
 
 int CONST_VERTEX = 0;
 int TOP = -1;
@@ -198,18 +199,37 @@ void main()
         printf("\n");
     }
 
-    int start_vertex;
-    printf("enter node you want to start: ");
-    scanf("%d", &start_vertex);
+    bool EXIT_LOOP = false;
+    int choice;
 
-    printf("\nDFS: ");
-    DFS(STACK, GRAPH_MATRIX, VISIT, start_vertex);
-
-    for (int i = 0; i < TOTAL_VERTICES; i++)
+    while (!EXIT_LOOP)
     {
-        VISIT[i] = 0;
-    }
+        printf("\n\n[1]TRAVERSE  [2]EXIT\nOPERATION NUMBER: ");
+        scanf("%d", &choice);
+        switch (choice)
+        {
+        case 1:
+            break;
+        case 2:
+            exit(0);
+            break;
+        default:
+            printf("\nInvalid operation number.\n");
+            break;
+        }
+        int start_vertex;
+        printf("\nenter node you want to start: ");
+        scanf("%d", &start_vertex);
 
-    printf("\nBFS: ");
-    BFS(STACK, GRAPH_MATRIX, VISIT, start_vertex);
+        printf("\nDFS: ");
+        DFS(STACK, GRAPH_MATRIX, VISIT, start_vertex);
+
+        for (int i = 0; i < TOTAL_VERTICES; i++)
+        {
+            VISIT[i] = 0;
+        }
+
+        printf("\nBFS: ");
+        BFS(STACK, GRAPH_MATRIX, VISIT, start_vertex);
+    }
 }
