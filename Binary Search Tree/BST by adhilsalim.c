@@ -3,6 +3,7 @@
 #include <stdbool.h>
 
 bool EXIT_LOOP = false;
+bool DUPLICATE_ELEMENT = false;
 
 struct node
 {
@@ -110,6 +111,8 @@ void insert()
     {
         current = root;
 
+        DUPLICATE_ELEMENT = false;
+
         while (current != NULL)
         {
             parent = current;
@@ -125,23 +128,28 @@ void insert()
             else
             {
                 printf("\nDUPLICATE DATA IS NOT ALLOWED. INSERTION DENIED.\n");
+                DUPLICATE_ELEMENT = true;
+                break;
             }
         }
 
-        new_node = (struct node *)malloc(sizeof(struct node));
-        new_node->data = data;
-        new_node->leftChild = NULL;
-        new_node->rightChild = NULL;
+        if (!DUPLICATE_ELEMENT)
+        {
+            new_node = (struct node *)malloc(sizeof(struct node));
+            new_node->data = data;
+            new_node->leftChild = NULL;
+            new_node->rightChild = NULL;
 
-        if (data < parent->data)
-        {
-            parent->leftChild = new_node;
-            printf("\nNEW NODE ADDED AS LEFT CHILD\n");
-        }
-        else
-        {
-            parent->rightChild = new_node;
-            printf("\nNEW NODE ADDED AS RIGHT CHILD\n");
+            if (data < parent->data)
+            {
+                parent->leftChild = new_node;
+                printf("\nNEW NODE ADDED AS LEFT CHILD\n");
+            }
+            else
+            {
+                parent->rightChild = new_node;
+                printf("\nNEW NODE ADDED AS RIGHT CHILD\n");
+            }
         }
     }
 }
