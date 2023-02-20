@@ -109,10 +109,10 @@ void main()
     // printf("\n%d-%d  %d-%d  %d-%d\n", POLYNOMIAL_SUM[0][0], POLYNOMIAL_SUM[1][0], POLYNOMIAL_SUM[0][1], POLYNOMIAL_SUM[1][1], POLYNOMIAL_SUM[0][2], POLYNOMIAL_SUM[1][2]);
 
     printf("\nPOLYNOMIAL SUM: ");
-    for (int i = 0; i <= k; i++)
+    for (int i = 0; i < k; i++)
     {
         printf("%dX^%d", POLYNOMIAL_SUM[0][i], POLYNOMIAL_SUM[1][i]);
-        if (i != k)
+        if (i != k - 1)
         {
             printf(" + ");
         }
