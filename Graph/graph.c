@@ -36,11 +36,8 @@ void DFS(int stack[], int graph[][CONST_VERTEX], int visit[], int vertex)
     visit[vertex] = 1;
     push(stack, vertex);
 
-    display(stack);
-
     while (TOP != -1)
     {
-        display(stack);
         int j = pop(stack);
         printf("%d ", j);
 
@@ -50,9 +47,16 @@ void DFS(int stack[], int graph[][CONST_VERTEX], int visit[], int vertex)
             {
                 visit[i] = 1;
                 push(stack, i);
-                display(stack);
                 break;
             }
+        }
+    }
+
+    for (int i = 0; i < CONST_VERTEX; i++)
+    {
+        if (visit[i] == 0)
+        {
+            DFS(stack, graph, visit, i);
         }
     }
 }
@@ -75,6 +79,7 @@ void main()
         for (int j = 0; j < TOTAL_VERTICES; j++)
         {
             GRAPH_MATRIX[i][j] = 0;
+            VISIT[i] = 0;
         }
     }
 
