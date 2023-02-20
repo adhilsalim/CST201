@@ -52,6 +52,7 @@ int deQueue(int Q[])
         FRONT++;
     }
 }
+
 void display(int stack[])
 {
     printf("\nSTACK: ");
@@ -101,6 +102,36 @@ void DFS(int stack[], int graph[][CONST_VERTEX], int visit[], int vertex)
         if (visit[i] == 0)
         {
             DFS(stack, graph, visit, i);
+        }
+    }
+}
+
+void BFS(int Q[], int graph[][CONST_VERTEX], int visit[], int vertex)
+{
+    visit[vertex] = 1;
+    enQueue(Q, vertex);
+
+    while (REAR != -1 && FRONT != -1)
+    {
+        int j = deQueue(Q);
+        printf("%d ", j);
+
+        for (int i = 0; i < CONST_VERTEX; i++)
+        {
+            if (graph[j][i] == 1 && visit[i] != 1)
+            {
+                visit[i] = 1;
+                enQueue(Q, i);
+                break;
+            }
+        }
+    }
+
+    for (int i = 0; i < CONST_VERTEX; i++)
+    {
+        if (visit[i] == 0)
+        {
+            BFS(Q, graph, visit, i);
         }
     }
 }
