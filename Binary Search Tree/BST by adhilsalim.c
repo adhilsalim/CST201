@@ -21,6 +21,40 @@ void insert();
 void delete();
 void traverse();
 
+void preOrder(struct node *);
+void postOrder(struct node *);
+void inOrder(struct node *);
+
+void preOrder(struct node *t)
+{
+    if (t != NULL)
+    {
+        printf("%d ", t->data);
+        preOrder(t->leftChild);
+        preOrder(t->rightChild);
+    }
+}
+
+void inOrder(struct node *t)
+{
+    if (t != NULL)
+    {
+        inOrder(t->leftChild);
+        printf("%d ", t->data);
+        inOrder(t->rightChild);
+    }
+}
+
+void postOrder(struct node *t)
+{
+    if (t != NULL)
+    {
+        postOrder(t->leftChild);
+        postOrder(t->rightChild);
+        printf("%d ", t->data);
+    }
+}
+
 void traverse()
 {
     int choice;
