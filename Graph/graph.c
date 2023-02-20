@@ -208,6 +208,7 @@ void main()
     }
 
     bool EXIT_LOOP = false;
+    bool RUN_MAIN = false;
     int choice;
 
     while (!EXIT_LOOP)
@@ -217,26 +218,33 @@ void main()
         switch (choice)
         {
         case 1:
+            RUN_MAIN = true;
             break;
         case 2:
             exit(0);
             break;
         default:
+            RUN_MAIN = false;
             printf("\nInvalid operation number.\n");
             break;
         }
-        int start_vertex;
-        printf("\nenter node you want to start: ");
-        scanf("%d", &start_vertex);
 
-        reset_visit(VISIT);
+        if (RUN_MAIN)
+        {
+            int start_vertex;
+            printf("\nenter node you want to start: ");
+            scanf("%d", &start_vertex);
 
-        printf("\nDFS: ");
-        DFS(STACK, GRAPH_MATRIX, VISIT, start_vertex);
+            reset_visit(VISIT);
 
-        reset_visit(VISIT);
+            printf("\nDFS: ");
+            DFS(STACK, GRAPH_MATRIX, VISIT, start_vertex);
 
-        printf("\nBFS: ");
-        BFS(STACK, GRAPH_MATRIX, VISIT, start_vertex);
+            reset_visit(VISIT);
+
+            printf("\nBFS: ");
+            BFS(STACK, GRAPH_MATRIX, VISIT, start_vertex);
+        }
+        RUN_MAIN = false;
     }
 }
