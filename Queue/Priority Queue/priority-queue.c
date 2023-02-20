@@ -24,6 +24,19 @@ void insert(int e, int p)
         REAR++;
         PQ[0][REAR] = e;
         PQ[1][REAR] = p;
+
+        int current_element = PQ[0][REAR];
+        int current_priority = PQ[1][REAR];
+        int j = REAR - 1;
+
+        while (j >= 0 && PQ[1][j] < current_priority)
+        {
+            PQ[0][j + 1] = PQ[0][j];
+            PQ[1][j + 1] = PQ[1][j];
+            j--;
+        }
+        PQ[0][j + 1] = current_element;
+        PQ[1][j + 1] = current_priority;
     }
 }
 
