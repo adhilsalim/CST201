@@ -2,11 +2,34 @@
 
 int CONST_VERTEX = 0;
 int TOP = -1;
+int REAR = -1;
+int FRONT = -1;
 
 int pop(int[]);
 void push(int[], int);
-void DFS(int stack[], int graph[][CONST_VERTEX], int visit[], int vertex);
+void enQueue(int[], int);
+void DFS(int[], int[][CONST_VERTEX], int[], int);
+void BFS(int[], int[][CONST_VERTEX], int[], int);
 void display(int[]);
+
+void enQueue(int Q[], int element)
+{
+    if (REAR == CONST_VERTEX - 1)
+    {
+        printf("\nINSERTION NOT POSSIBLE\n");
+    }
+    else if (REAR == -1 && FRONT == -1)
+    {
+        REAR++;
+        FRONT++;
+        Q[REAR] = element;
+    }
+    else
+    {
+        REAR++;
+        Q[REAR] = element;
+    }
+}
 
 void display(int stack[])
 {
@@ -72,6 +95,7 @@ void main()
 
     int GRAPH_MATRIX[TOTAL_VERTICES][TOTAL_VERTICES];
     int STACK[TOTAL_VERTICES];
+    int QUEUE[TOTAL_VERTICES];
     int VISIT[TOTAL_VERTICES];
 
     for (int i = 0; i < TOTAL_VERTICES; i++)
