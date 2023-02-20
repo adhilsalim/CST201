@@ -49,12 +49,12 @@ void DFS(int stack[], int graph[][CONST_VERTEX], int visit[], int vertex)
             if (graph[j][i] == 1 && visit[i] != 1)
             {
                 visit[i] = 1;
-                push(stack, visit[i]);
+                push(stack, i);
                 display(stack);
                 break;
             }
         }
-        }
+    }
 }
 
 void main()
