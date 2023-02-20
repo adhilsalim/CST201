@@ -66,6 +66,7 @@ void main()
     {
         if (POLYNOMIAL_ONE[1][i] == POLYNOMIAL_TWO[1][j])
         {
+            // printf("\nexp same adding %d and %d\n", POLYNOMIAL_ONE[0][i], POLYNOMIAL_TWO[0][j]);
             POLYNOMIAL_SUM[0][k] = POLYNOMIAL_ONE[0][i] + POLYNOMIAL_TWO[0][j];
             POLYNOMIAL_SUM[1][k] = POLYNOMIAL_ONE[1][i];
             i++;
@@ -73,12 +74,14 @@ void main()
         }
         else if (POLYNOMIAL_ONE[1][i] > POLYNOMIAL_TWO[1][j])
         {
+            // printf("\npol one exp is greater, coeff is %d\n", POLYNOMIAL_ONE[0][i]);
             POLYNOMIAL_SUM[0][k] = POLYNOMIAL_ONE[0][i];
             POLYNOMIAL_SUM[1][k] = POLYNOMIAL_ONE[1][i];
             i++;
         }
         else
         {
+            // printf("\npol two exp is greater, coeff is %d\n", POLYNOMIAL_TWO[0][j]);
             POLYNOMIAL_SUM[0][k] = POLYNOMIAL_TWO[0][j];
             POLYNOMIAL_SUM[1][k] = POLYNOMIAL_TWO[1][j];
             j++;
@@ -102,6 +105,8 @@ void main()
         j++;
         k++;
     }
+
+    // printf("\n%d-%d  %d-%d  %d-%d\n", POLYNOMIAL_SUM[0][0], POLYNOMIAL_SUM[1][0], POLYNOMIAL_SUM[0][1], POLYNOMIAL_SUM[1][1], POLYNOMIAL_SUM[0][2], POLYNOMIAL_SUM[1][2]);
 
     printf("\nPOLYNOMIAL SUM: ");
     for (int i = 0; i <= k; i++)
