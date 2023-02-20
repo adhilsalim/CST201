@@ -8,8 +8,11 @@ int FRONT = -1;
 int pop(int[]);
 void push(int[], int);
 void enQueue(int[], int);
+int deQueue(int[]);
+
 void DFS(int[], int[][CONST_VERTEX], int[], int);
 void BFS(int[], int[][CONST_VERTEX], int[], int);
+
 void display(int[]);
 
 void enQueue(int Q[], int element)
@@ -31,6 +34,24 @@ void enQueue(int Q[], int element)
     }
 }
 
+int deQueue(int Q[])
+{
+    if (REAR == -1 && FRONT == -1)
+    {
+        printf("\nDELETION NOT POSSIBLE\n");
+    }
+    else if (REAR == FRONT)
+    {
+        return Q[FRONT];
+        FRONT = -1;
+        REAR = -1;
+    }
+    else
+    {
+        return Q[FRONT];
+        FRONT++;
+    }
+}
 void display(int stack[])
 {
     printf("\nSTACK: ");
