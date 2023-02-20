@@ -14,6 +14,7 @@ struct node
 struct node *root = NULL;
 struct node *temp = NULL;
 struct node *current = NULL;
+struct node *parent = NULL;
 
 void insert();
 void delete();
@@ -37,6 +38,23 @@ void insert()
     }
     else
     {
+        current = root;
+
+        while (current != NULL)
+        {
+            parent = current;
+
+            if (data > current->data)
+            {
+            }
+            else if (data < current->data)
+            {
+            }
+            else
+            {
+                printf("\nDUPLICATE DATA IS NOT ALLOWED. INSERTION DENIED.\n");
+            }
+        }
     }
 }
 
