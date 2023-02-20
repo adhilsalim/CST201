@@ -11,12 +11,20 @@ int pop(int[]);
 void push(int[], int);
 void enQueue(int[], int);
 int deQueue(int[]);
+void reset_visit(int[]);
 
 void DFS(int[], int[][CONST_VERTEX], int[], int);
 void BFS(int[], int[][CONST_VERTEX], int[], int);
 
 void display(int[]);
 
+void reset_visit(int v[])
+{
+    for (int i = 0; i < CONST_VERTEX; i++)
+    {
+        v[i] = 0;
+    }
+}
 void enQueue(int Q[], int element)
 {
     if (REAR == CONST_VERTEX - 1)
@@ -221,13 +229,12 @@ void main()
         printf("\nenter node you want to start: ");
         scanf("%d", &start_vertex);
 
+        reset_visit(VISIT);
+
         printf("\nDFS: ");
         DFS(STACK, GRAPH_MATRIX, VISIT, start_vertex);
 
-        for (int i = 0; i < TOTAL_VERTICES; i++)
-        {
-            VISIT[i] = 0;
-        }
+        reset_visit(VISIT);
 
         printf("\nBFS: ");
         BFS(STACK, GRAPH_MATRIX, VISIT, start_vertex);
