@@ -77,6 +77,16 @@ void delete(int data)
 
             if (child->leftChild == NULL && child->rightChild == NULL)
             {
+                if (isLeftChild)
+                {
+                    parent->leftChild = NULL;
+                }
+                else
+                {
+                    parent->rightChild = NULL;
+                }
+
+                free(child);
             }
         }
     }
