@@ -15,12 +15,13 @@ void enQueue(int);
 int deQueue();
 int pop();
 void push(int);
-void DFS(int v);
-void BFS(int v);
+void DFS(int);
+void BFS(int);
 
 void DFS(int v)
 {
     VISIT[v] = 1;
+    push(v);
 
     while (TOP != -1)
     {
@@ -30,7 +31,7 @@ void DFS(int v)
 
         for (int i = 0; i < VERTEX; i++)
         {
-            if (GRAPH[popped_vertex][i] == 1 && VISIT[i] != 0)
+            if (GRAPH[popped_vertex][i] == 1 && VISIT[i] == 0)
             {
                 VISIT[i] = 1;
                 push(i);
