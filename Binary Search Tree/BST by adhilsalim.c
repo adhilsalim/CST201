@@ -17,6 +17,7 @@ struct node *temp = NULL;
 struct node *current = NULL;
 struct node *parent = NULL;
 struct node *new_node = NULL;
+struct node *child = NULL;
 
 void insert();
 void delete(int);
@@ -56,15 +57,26 @@ void delete(int data)
         }
         else
         {
-            if (parent->leftChild != NULL)
+            bool isLeftChild;
+
+            if (parent->leftChild != NULL && (parent->leftChild)->data == data)
             {
+                child = parent->leftChild;
+                isLeftChild = true;
             }
-            else if (parent->rightChild != NULL)
+            else if (parent->rightChild != NULL && (parent->rightChild)->data == data)
             {
+                child = parent->rightChild;
+                isLeftChild = false;
             }
             else
             {
-                printf("\nAN ERROR OCCURRED\n");
+                printf("\nAN INTERNAL ERROR OCCURRED\n");
+                exit(0);
+            }
+
+            if (child->leftChild == NULL && child->rightChild == NULL)
+            {
             }
         }
     }
