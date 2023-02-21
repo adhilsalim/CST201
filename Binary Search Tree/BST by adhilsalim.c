@@ -73,6 +73,7 @@ void delete(int data)
             {
                 printf("\nAN INTERNAL ERROR OCCURRED\n");
                 exit(0);
+                // child = parent;
             }
 
             if (child->leftChild == NULL && child->rightChild == NULL)
