@@ -258,7 +258,7 @@ void insert()
 
 void main()
 {
-    int choice;
+    int choice, delete_node;
     while (!EXIT_LOOP)
     {
         printf("\n[1]INSERT [2]DELETE [3]TRAVERSAL [4]EXIT\nOPERATION: ");
@@ -270,7 +270,9 @@ void main()
             insert();
             break;
         case 2:
-            delete ();
+            printf("\nENTER NODE TO DELETE: ");
+            scanf("%d", &delete_node);
+            delete (delete_node);
             break;
         case 3:
             traverse();
