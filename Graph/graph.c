@@ -20,6 +20,32 @@ void BFS(int v);
 
 void DFS(int v)
 {
+    VISIT[v] = 1;
+
+    while (TOP != -1)
+    {
+        int popped_vertex;
+        popped_vertex = pop();
+        printf("%d ", popped_vertex);
+
+        for (int i = 0; i < VERTEX; i++)
+        {
+            if (GRAPH[popped_vertex][i] == 1 && VISIT[i] != 0)
+            {
+                VISIT[i] = 1;
+                push(i);
+            }
+        }
+    }
+
+    for (int i = 0; i < VERTEX; i++)
+    {
+        if (VISIT[i] == 0)
+        {
+            DFS(i);
+            break;
+        }
+    }
 }
 
 void BFS(int v)
@@ -130,5 +156,5 @@ void main()
     }
 
     printf("\nBFS: ");
-    BFS(start_vertex);
+    // BFS(start_vertex);
 }
