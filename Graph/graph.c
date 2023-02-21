@@ -51,6 +51,32 @@ void DFS(int v)
 
 void BFS(int v)
 {
+    VISIT[v] = 1;
+    enQueue(v);
+
+    while (REAR != -1 && FRONT != -1)
+    {
+        int popped_vertex;
+        popped_vertex = deQueue();
+
+        for (int i = 0; i < VERTEX; i++)
+        {
+            if (GRAPH[popped_vertex][i] == 1 && VISIT[i] == 0)
+            {
+                VISIT[i] = 1;
+                enQueue(i);
+            }
+        }
+    }
+
+    for (int i = 0; i < VERTEX; i++)
+    {
+        if (VISIT[i] == 0)
+        {
+            BFS(i);
+            break;
+        }
+    }
 }
 
 void enQueue(int element)
@@ -157,5 +183,5 @@ void main()
     }
 
     printf("\nBFS: ");
-    // BFS(start_vertex);
+    BFS(start_vertex);
 }
