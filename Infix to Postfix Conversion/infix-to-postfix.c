@@ -9,6 +9,39 @@ int TOP = -1;
 
 void push(char);
 char pop();
+int isOperand(char);
+
+int isOperand(char c)
+{
+    if (c == '+' || c == '-' || c == '/' || c == '*' || c == ')' || c == ')')
+    {
+        return false;
+    }
+    else
+    {
+        return true;
+    }
+}
+
+int priority(char c)
+{
+    if (c == '(' || c == ')')
+    {
+        return 0;
+    }
+    else if (c == '+' || c == '-')
+    {
+        return 1;
+    }
+    else if (c == '*' || c == '/')
+    {
+        return 2;
+    }
+    else if (c == '^')
+    {
+        return 0;
+    }
+}
 
 void push(char c)
 {
@@ -44,11 +77,12 @@ void main()
     // OR scanf("%s", INFIX);
     // puts(INFIX);
 
-    char current_character;
+    char current_character, temp;
 
     for (int i = 0; i < strlen(INFIX); i++)
     {
         current_character = INFIX[i];
+
         if (current_character == '(')
         {
             push(current_character);
@@ -59,6 +93,8 @@ void main()
             {
                 printf("%c", pop());
             }
+            temp = pop();
         }
+        else if ()
     }
 }
