@@ -19,12 +19,56 @@ struct node *parent = NULL;
 struct node *new_node = NULL;
 
 void insert();
-void delete();
+void delete(int);
 void traverse();
 
 void preOrder(struct node *);
 void postOrder(struct node *);
 void inOrder(struct node *);
+
+void delete(int data)
+{
+    if (root == NULL)
+    {
+        printf("\nTREE DOESN'T EXIST\n");
+    }
+    else
+    {
+        current = root;
+
+        while (current != NULL && current->data != data)
+        {
+            parent = current;
+
+            if (data < current->data)
+            {
+                current = current->leftChild;
+            }
+            else if (data > current->data)
+            {
+                current = current->rightChild;
+            }
+        }
+
+        if (current == NULL)
+        {
+            printf("\nTHE NODE DOESN'T EXIST IN TREE\n");
+        }
+        else
+        {
+            if (parent->leftChild != NULL)
+            {
+            }
+            else if (parent->rightChild != NULL)
+            {
+            }
+            else
+            {
+                printf("\nAN ERROR OCCURRED\n");
+            }
+        }
+    }
+}
 
 void preOrder(struct node *t)
 {
