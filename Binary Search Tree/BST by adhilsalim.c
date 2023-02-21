@@ -112,6 +112,17 @@ void delete(int data)
             }
             else
             {
+                current = child->rightChild;
+
+                while (current != NULL)
+                {
+                    temp = current;
+                    current = current->leftChild;
+                }
+
+                int temp_data = temp->data;
+                delete (temp_data);
+                child->data = temp_data;
             }
         }
     }
