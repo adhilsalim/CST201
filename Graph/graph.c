@@ -2,9 +2,73 @@
 
 int VERTEX = 0;
 int EDGES = 0;
+int REAR = -1;
+int FRONT = -1;
+int TOP = -1;
 
+int Q[100];
+int STACK[100];
 int GRAPH[50][50];
 int VISIT[50];
+
+void enQueue(int);
+int deQueue();
+int pop();
+void push(int);
+
+void enQueue(int element)
+{
+    if (REAR == VERTEX - 1)
+    {
+        printf("\nINSERTION NOT POSSIBLE\n");
+    }
+    else if (REAR == -1 && FRONT == -1)
+    {
+        REAR++;
+        FRONT++;
+        Q[REAR] = element;
+    }
+    else
+    {
+        REAR++;
+        Q[REAR] = element;
+    }
+}
+
+int deQueue()
+{
+    int element;
+    if (REAR == -1 && FRONT == -1)
+    {
+        printf("\nDELETION NOT POSSIBLE\n");
+    }
+    else if (REAR == FRONT)
+    {
+        element = Q[FRONT];
+        FRONT = -1;
+        REAR = -1;
+        return element;
+    }
+    else
+    {
+        element = Q[FRONT];
+        FRONT++;
+        return element;
+    }
+}
+
+int pop()
+{
+    int element = STACK[TOP];
+    TOP--;
+    return element;
+}
+
+void push(int element)
+{
+    TOP++;
+    STACK[TOP] = element;
+}
 
 void main()
 {
