@@ -9,11 +9,11 @@ int TOP = -1;
 
 void push(char);
 char pop();
-int isOperand(char);
+bool isOperand(char);
 
-int isOperand(char c)
+bool isOperand(char c)
 {
-    if (c == '+' || c == '-' || c == '/' || c == '*' || c == ')' || c == ')')
+    if (c == '+' || c == '-' || c == '/' || c == '*' || c == '(' || c == ')' || c == '^')
     {
         return false;
     }
@@ -82,6 +82,7 @@ void main()
     for (int i = 0; i < strlen(INFIX); i++)
     {
         current_character = INFIX[i];
+        // printf("ABX: %c", INFIX[i]);
 
         if (isOperand(current_character))
         {
@@ -91,17 +92,18 @@ void main()
         {
             push(current_character);
         }
-        else if (current_character = ')')
+        else if (current_character == ')')
         {
-            while (STACK[TOP] != '(')
+            while (STACK[TOP] != '(' && TOP != -1)
             {
                 printf("%c", pop());
             }
+
             temp = pop();
         }
         else if (priority(current_character) <= priority(STACK[TOP]))
         {
-            while (priority(current_character) <= priority(STACK[TOP]))
+            while (priority(current_character) <= priority(STACK[TOP]) && TOP != -1)
             {
                 printf("%c", pop());
             }
@@ -109,6 +111,14 @@ void main()
         else
         {
             push(current_character);
+        }
+    }
+
+    if (TOP != -1)
+    {
+        while (TOP != -1)
+        {
+            printf("%c", pop());
         }
     }
 }
