@@ -15,6 +15,16 @@ void enQueue(int);
 int deQueue();
 int pop();
 void push(int);
+void DFS(int v);
+void BFS(int v);
+
+void DFS(int v)
+{
+}
+
+void BFS(int v)
+{
+}
 
 void enQueue(int element)
 {
