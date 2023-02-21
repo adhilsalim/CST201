@@ -88,6 +88,31 @@ void delete(int data)
 
                 free(child);
             }
+            else if (child->leftChild != NULL && child->rightChild == NULL)
+            {
+                if (isLeftChild)
+                {
+                    parent->leftChild = child->leftChild;
+                }
+                else
+                {
+                    parent->rightChild = child->leftChild;
+                }
+            }
+            else if (child->leftChild == NULL && child->rightChild != NULL)
+            {
+                if (isLeftChild)
+                {
+                    parent->leftChild = child->rightChild;
+                }
+                else
+                {
+                    parent->rightChild = child->rightChild;
+                }
+            }
+            else
+            {
+            }
         }
     }
 }
