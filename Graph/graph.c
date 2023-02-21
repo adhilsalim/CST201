@@ -116,8 +116,18 @@ void main()
     printf("\nenter node you want to start: ");
     scanf("%d", &start_vertex);
 
+    for (int i = 0; i < 50; i++)
+    {
+        VISIT[i] = 0;
+    }
+
     printf("\nDFS: ");
     DFS(start_vertex);
+
+    for (int i = 0; i < 50; i++)
+    {
+        VISIT[i] = 0;
+    }
 
     printf("\nBFS: ");
     BFS(start_vertex);
