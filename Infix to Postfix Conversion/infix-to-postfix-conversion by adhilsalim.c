@@ -82,7 +82,6 @@ void main()
     for (int i = 0; i < strlen(INFIX); i++)
     {
         current_character = INFIX[i];
-        // printf("ABX: %c", INFIX[i]);
 
         if (isOperand(current_character))
         {
@@ -101,24 +100,20 @@ void main()
 
             temp = pop();
         }
-        else if (priority(current_character) <= priority(STACK[TOP]))
+        else if (!isOperand(current_character))
         {
-            while (priority(current_character) <= priority(STACK[TOP]) && TOP != -1)
+            if (priority(current_character) > priority(STACK[TOP]))
             {
-                printf("%c", pop());
+                push(current_character);
             }
-        }
-        else
-        {
-            push(current_character);
-        }
-    }
-
-    if (TOP != -1)
-    {
-        while (TOP != -1)
-        {
-            printf("%c", pop());
+            else
+            {
+                while (TOP != -1 && priority(current_character) <= priority(STACK[TOP]))
+                {
+                    printf("%c", pop());
+                }
+                push(current_character);
+            }
         }
     }
 }
