@@ -101,4 +101,14 @@ void main()
         }
         printf("\n");
     }
+
+    int start_vertex;
+    printf("\nenter node you want to start: ");
+    scanf("%d", &start_vertex);
+
+    printf("\nDFS: ");
+    DFS(start_vertex);
+
+    printf("\nBFS: ");
+    BFS(start_vertex);
 }
