@@ -1,33 +1,88 @@
 #include <stdio.h>
-#include <stdlib.h>
-#include <stdbool.h>
 
-int CONST_VERTEX = 0;
-int TOP = -1;
+int VERTEX = 0;
+int EDGES = 0;
 int REAR = -1;
 int FRONT = -1;
+int TOP = -1;
 
-int pop(int[]);
-void push(int[], int);
-void enQueue(int[], int);
-int deQueue(int[]);
-void reset_visit(int[]);
+int Q[100];
+int STACK[100];
+int GRAPH[50][50];
+int VISIT[50];
 
-void DFS(int[], int[][CONST_VERTEX], int[], int);
-void BFS(int[], int[][CONST_VERTEX], int[], int);
+void enQueue(int);
+int deQueue();
+int pop();
+void push(int);
+void DFS(int);
+void BFS(int);
 
-void display(int[]);
-
-void reset_visit(int v[])
+void DFS(int v)
 {
-    for (int i = 0; i < CONST_VERTEX; i++)
+    VISIT[v] = 1;
+    push(v);
+
+    while (TOP != -1)
     {
-        v[i] = 0;
+        int popped_vertex;
+        popped_vertex = pop();
+        printf("%d ", popped_vertex);
+
+        for (int i = 0; i < VERTEX; i++)
+        {
+            if (GRAPH[popped_vertex][i] == 1 && VISIT[i] == 0)
+            {
+                VISIT[i] = 1;
+                push(i);
+            }
+        }
+    }
+
+    for (int i = 0; i < VERTEX; i++)
+    {
+        if (VISIT[i] == 0)
+        {
+            DFS(i);
+            break;
+        }
     }
 }
-void enQueue(int Q[], int element)
+
+void BFS(int v)
 {
-    if (REAR == CONST_VERTEX - 1)
+    VISIT[v] = 1;
+    enQueue(v);
+
+    while (REAR != -1 && FRONT != -1)
+    {
+        int popped_vertex;
+        popped_vertex = deQueue();
+        printf("%d ", popped_vertex);
+
+        for (int i = 0; i < VERTEX; i++)
+        {
+            if (GRAPH[popped_vertex][i] == 1 && VISIT[i] == 0)
+            {
+                VISIT[i] = 1;
+                enQueue(i);
+            }
+        }
+    }
+
+    for (int i = 0; i < VERTEX; i++)
+    {
+        if (VISIT[i] == 0)
+        {
+            BFS(i);
+            break;
+        }
+    }
+}
+
+void enQueue(int element)
+{
+    if (REAR == VERTEX - 1)
     {
         printf("\nINSERTION NOT POSSIBLE\n");
     }
@@ -44,7 +99,7 @@ void enQueue(int Q[], int element)
     }
 }
 
-int deQueue(int Q[])
+int deQueue()
 {
     int element;
     if (REAR == -1 && FRONT == -1)
@@ -66,185 +121,68 @@ int deQueue(int Q[])
     }
 }
 
-void display(int array[])
+int pop()
 {
-    if (FRONT != -1 && REAR != -1)
-    {
-        printf("\nQ: ");
-        for (int i = FRONT; i <= REAR; i++)
-        {
-            printf("%d ", array[i]);
-        }
-        printf("\n");
-    }
-}
-
-int pop(int stack[])
-{
-    int element = stack[TOP];
+    int element = STACK[TOP];
     TOP--;
     return element;
 }
 
-void push(int stack[], int element)
+void push(int element)
 {
     TOP++;
-    stack[TOP] = element;
-}
-
-void DFS(int stack[], int graph[][CONST_VERTEX], int visit[], int vertex)
-{
-    visit[vertex] = 1;
-    push(stack, vertex);
-
-    while (TOP != -1)
-    {
-        int j = pop(stack);
-        printf("%d ", j);
-
-        for (int i = 0; i < CONST_VERTEX; i++)
-        {
-            if (graph[j][i] == 1 && visit[i] != 1)
-            {
-                visit[i] = 1;
-                push(stack, i);
-                break;
-            }
-        }
-    }
-
-    for (int i = 0; i < CONST_VERTEX; i++)
-    {
-        if (visit[i] == 0)
-        {
-            DFS(stack, graph, visit, i);
-        }
-    }
-}
-
-void BFS(int Q[], int graph[][CONST_VERTEX], int visit[], int vertex)
-{
-    visit[vertex] = 1;
-    enQueue(Q, vertex);
-
-    while (REAR != -1 && FRONT != -1)
-    {
-        int j = deQueue(Q);
-        printf("%d ", j);
-
-        for (int i = 0; i < CONST_VERTEX; i++)
-        {
-            if (graph[j][i] == 1 && visit[i] != 1)
-            {
-                visit[i] = 1;
-                enQueue(Q, i);
-                break;
-            }
-        }
-    }
-
-    for (int i = 0; i < CONST_VERTEX; i++)
-    {
-        if (visit[i] == 0)
-        {
-            BFS(Q, graph, visit, i);
-        }
-    }
+    STACK[TOP] = element;
 }
 
 void main()
 {
-    int TOTAL_VERTICES = 0, TOTAL_EDGES = 0;
+    printf("NO OF VERTICES: ");
+    scanf("%d", &VERTEX);
 
-    printf("No of vertices: ");
-    scanf("%d", &TOTAL_VERTICES);
+    printf("NO OF EDGES: ");
+    scanf("%d", &EDGES);
 
-    CONST_VERTEX = TOTAL_VERTICES;
-
-    int GRAPH_MATRIX[TOTAL_VERTICES][TOTAL_VERTICES];
-    int STACK[TOTAL_VERTICES];
-    int QUEUE[TOTAL_VERTICES];
-    int VISIT[TOTAL_VERTICES];
-
-    for (int i = 0; i < TOTAL_VERTICES; i++)
+    for (int i = 0; i < EDGES; i++)
     {
-        for (int j = 0; j < TOTAL_VERTICES; j++)
-        {
-            GRAPH_MATRIX[i][j] = 0;
-            VISIT[i] = 0;
-        }
-    }
+        int vertex_one, vertex_two;
 
-    int vertex_one, vertex_two;
-
-    printf("No of edges: ");
-    scanf("%d", &TOTAL_EDGES);
-
-    printf("\nEnter edges in the order (A,B):\n");
-
-    int k = 0;
-    while (k < TOTAL_EDGES)
-    {
-        printf("\n(A,B) enter value for A: ");
+        printf("enter A in (A,B): ");
         scanf("%d", &vertex_one);
-        printf("\n(%d,B) enter value for A: ", vertex_one);
+
+        printf("enter B in (A,B): ");
         scanf("%d", &vertex_two);
-        printf("\nadding edge (%d,%d)\n", vertex_one, vertex_two);
 
-        GRAPH_MATRIX[vertex_one][vertex_two] = 1;
-        GRAPH_MATRIX[vertex_two][vertex_one] = 1;
-
-        k++;
+        GRAPH[vertex_one][vertex_two] = 1;
+        GRAPH[vertex_two][vertex_one] = 1;
     }
 
     printf("\nAdjacency matrix: \n");
-    for (int i = 0; i < TOTAL_VERTICES; i++)
+    for (int i = 0; i < VERTEX; i++)
     {
-        for (int j = 0; j < TOTAL_VERTICES; j++)
+        for (int j = 0; j < VERTEX; j++)
         {
-            printf("%d ", GRAPH_MATRIX[i][j]);
+            printf("%d ", GRAPH[i][j]);
         }
         printf("\n");
     }
 
-    bool EXIT_LOOP = false;
-    bool RUN_MAIN = false;
-    int choice;
+    int start_vertex;
+    printf("\nenter node you want to start: ");
+    scanf("%d", &start_vertex);
 
-    while (!EXIT_LOOP)
+    for (int i = 0; i < 50; i++)
     {
-        printf("\n\n[1]TRAVERSE  [2]EXIT\nOPERATION NUMBER: ");
-        scanf("%d", &choice);
-        switch (choice)
-        {
-        case 1:
-            RUN_MAIN = true;
-            break;
-        case 2:
-            exit(0);
-            break;
-        default:
-            RUN_MAIN = false;
-            printf("\nInvalid operation number.\n");
-            break;
-        }
-
-        if (RUN_MAIN)
-        {
-            int start_vertex;
-            printf("\nenter node you want to start: ");
-            scanf("%d", &start_vertex);
-
-            reset_visit(VISIT);
-
-            printf("\nDFS: ");
-            DFS(STACK, GRAPH_MATRIX, VISIT, start_vertex);
-
-            reset_visit(VISIT);
-
-            printf("\nBFS: ");
-            BFS(QUEUE, GRAPH_MATRIX, VISIT, start_vertex);
-        }
-        RUN_MAIN = false;
+        VISIT[i] = 0;
     }
+
+    printf("\nDFS: ");
+    DFS(start_vertex);
+
+    for (int i = 0; i < 50; i++)
+    {
+        VISIT[i] = 0;
+    }
+
+    printf("\nBFS: ");
+    BFS(start_vertex);
 }
