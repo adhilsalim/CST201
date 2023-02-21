@@ -83,7 +83,11 @@ void main()
     {
         current_character = INFIX[i];
 
-        if (current_character == '(')
+        if (isOperand(current_character))
+        {
+            printf("%c", current_character);
+        }
+        else if (current_character == '(')
         {
             push(current_character);
         }
@@ -95,6 +99,16 @@ void main()
             }
             temp = pop();
         }
-        else if ()
+        else if (priority(current_character) <= priority(STACK[TOP]))
+        {
+            while (priority(current_character) <= priority(STACK[TOP]))
+            {
+                printf("%c", pop());
+            }
+        }
+        else
+        {
+            push(current_character);
+        }
     }
 }
