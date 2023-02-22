@@ -74,7 +74,7 @@ void main()
         i++;
     }
 
-    printf("\nPOLYNOMIAL SUM: ");
+    printf("\nPRODUCT OF POLYNOMIAL: ");
     for (int i = 0; i < k; i++)
     {
         printf("%dX^%d", POLYNOMIAL_PRO[0][i], POLYNOMIAL_PRO[1][i]);
