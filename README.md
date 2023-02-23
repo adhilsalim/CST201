@@ -79,7 +79,7 @@ Distributed under the MIT License. See [LICENSE](https://github.com/adhilsalim/C
 ## Authors
 
 * **Adhil Salim** - *CS Engineering Student* - [Adhil Salim](https://github.com/adhilsalim) - *Built this repo and actively contributing*
-* **Adavith Manoj** - *CS Engineering Student* - [Adavith Manoj](https://github.com/Advaith-dev) - *Contributed to this repo*
+* **Advaith Manoj** - *CS Engineering Student* - [Adavith Manoj](https://github.com/Advaith-dev) - *Contributed to this repo*
 * **Aaron Samuel** - *CS Engineering Student* - [Aaron Samuel](https://github.com/lionelmessiaaron) - *Contributed to this repo*
 * **Abhishek P Anil** - *CS Engineering Student* - [Abhishek P Anil](https://github.com/Abhishek-P-Anil) - *Contributed to this repo*
 * **Abin Sunny** - *CS Engineering Student* - [Abin Sunny](https://github.com/mrabinsunny) - *Contributed to this repo*
