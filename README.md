@@ -15,7 +15,7 @@
 
 ## Table Of Contents
 
-* [About the Rep](#about-the-project)
+* [About the Repo](#about-the-project)
 * [Built With](#built-with)
 * [Getting Started](#getting-started)
 * [Usage](#usage)
