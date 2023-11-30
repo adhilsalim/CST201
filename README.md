@@ -1,87 +1,66 @@
-<br/>
-<p align="center">
-  <h3 align="center">CST201 DS</h3>
+## CST201: Data Structures Lab
 
-  <p align="center">
-    An awesome repository for data structure (CST201)
-    <br/>
-    <br/>
-    <a href="https://github.com/adhilsalim/CST201/issues">Report Bug</a>
-    .
-  </p>
-</p>
+This repository contains the programs and resources developed during the CST201 Data Structures Lab sessions.
 
-![Downloads](https://img.shields.io/github/downloads/adhilsalim/CST201/total) ![Contributors](https://img.shields.io/github/contributors/adhilsalim/CST201?color=dark-green) ![Issues](https://img.shields.io/github/issues/adhilsalim/CST201) ![License](https://img.shields.io/github/license/adhilsalim/CST201) 
+### Purpose
 
-## Table Of Contents
+This repository serves as a central hub for sharing and referencing the lab programs and resources created in CST201. It aims to:
 
-* [About the Repo](#about-the-project)
-* [Built With](#built-with)
-* [Getting Started](#getting-started)
-* [Usage](#usage)
-* [Roadmap](#roadmap)
-* [Contributing](#contributing)
-* [License](#license)
-* [Authors](#authors)
+- **Facilitate collaboration:** Students can access and share code and resources with each other, enabling better understanding and troubleshooting.
+- **Maintain a record of work:** Programs and resources are preserved for future reference and revision.
+- **Promote learning:** Sharing and reviewing code and resources promotes knowledge exchange and reinforces key data structures concepts.
 
-## About The Repo
+### Repository Structure
 
-Hi there 👋
-This is a repository for data structure course (course code: CST201) as per the KTU 2019 syllabus.
-This repo contains almost all lab programs for data structure lab.
+The repository is organized into folders corresponding to each data structure or algorithm covered in the lab sessions:
 
-Don't forget to give a ⭐ if you like it.
+- **Binary Search Tree:** Contains programs and resources related to implementing and manipulating binary search trees.
+- **Binary Search:** Contains programs and resources related to implementing the binary search algorithm.
+- **Graph:** Contains programs and resources related to representing and manipulating graphs using various techniques.
+- **Hashing-closed:** Contains programs and resources related to implementing closed hashing for efficient data storage and retrieval.
+- **Hashing-open:** Contains programs and resources related to implementing open hashing to handle collisions in hash tables.
+- **Infix to Postfix Conversion:** Contains programs and resources related to converting infix expressions to postfix expressions.
+- **Linear Search:** Contains programs and resources related to implementing the linear search algorithm.
+- **Linked List:** Contains programs and resources related to implementing various operations on linked lists.
+- **Polynomial Addition:** Contains programs and resources related to adding polynomials using linked lists.
+- **Polynomial Multiplication:** Contains programs and resources related to multiplying polynomials using linked lists.
+- **Postfix Evaluation:** Contains programs and resources related to evaluating postfix expressions.
+- **Queue/Priority Queue:** Contains programs and resources related to implementing and manipulating queues and priority queues.
+- **Sorting:** Contains programs and resources related to implementing various sorting algorithms like bubble sort, selection sort, insertion sort, etc.
+- **Sparse Matrix:** Contains programs and resources related to representing and manipulating sparse matrices.
+- **Stack:** Contains programs and resources related to implementing and manipulating stacks.
 
-## Built With
+### Usage
 
-all programs are written in C 😍
+1. **Fork the repository:** This creates your own copy of the code and resources, allowing you to make modifications and contribute your work.
+2. **Clone the repository:** Download your forked copy to your local machine.
+3. **Navigate to the relevant folder based on the data structure or algorithm you want to explore.**
+4. **Review and explore the provided programs and resources.**
+5. **Feel free to modify and adapt the code and resources for your own learning or project purposes.**
 
-## Getting Started
+### Contributing
 
-You can download all the contents of the repository as .zip file or you can clone this repository by forking.
+Contributions are welcome to this repository. Please consider contributing by:
 
-## Usage
+- Adding programs and resources from your own lab sessions.
+- Improving existing code or documentation.
+- Reporting any issues or bugs.
 
-You are free to download, modify the contents of the repository on sharing proper credit(s) must be given along with.
+Before contributing, please review the following guidelines:
 
-The credit must include the following:
-1. name and GitHub username of the owner of the repo
-2. a link to the repo
-3. name and GitHub username of the program author(s) [if applicable]
+- Ensure your contributions are relevant to the CST201 course.
+- Follow the existing coding style and formatting.
+- Provide clear and concise comments for your code.
+- Open a pull request for your contributions.
 
-## Roadmap
+### License
 
-See the [open issues](https://github.com/adhilsalim/CST201/issues) for a list of proposed features (and known issues).
+This repository is licensed under the MIT License. Please refer to the LICENSE file for details.
 
-## Contributing
+### Disclaimer
 
-Contributions are what make the open source community such an amazing place to be learn, inspire, and create. Any contributions you make are **greatly appreciated**.
-* If you have suggestions for adding or removing projects, feel free to [open an issue](https://github.com/adhilsalim/CST201/issues/new) to discuss it, or directly create a pull request after you edit the *README.md* file with necessary changes.
-* Please make sure you check your spelling and grammar.
-* Create individual PR for each suggestion.
-* Please also read through the [Code Of Conduct](https://github.com/adhilsalim/CST201/blob/main/CODE_OF_CONDUCT.md) before posting your first idea as well.
+This repository is intended for educational purposes only. The provided programs and resources may be incomplete or contain errors. Use them at your own risk and discretion.
 
-### Creating A Pull Request
+### Contact
 
-1. Fork the Project
-2. Create your Feature Branch 
-(`git checkout -b feature/FeatureName`)
-3. Commit your Changes 
-(`git commit -m 'Add some FeatureName'`)
-4. Push to the Branch 
-(`git push origin feature/FeatureName`)
-5. Open a Pull Request
-
-## License
-
-Distributed under the MIT License. See [LICENSE](https://github.com/adhilsalim/CST201/blob/main/LICENSE.md) for more information.
-
-## Authors
-
-* **Adhil Salim** - *CS Engineering Student* - [Adhil Salim](https://github.com/adhilsalim) - *Built this repo and actively contributing*
-* **Advaith Manoj** - *CS Engineering Student* - [Adavith Manoj](https://github.com/Advaith-dev) - *Contributed to this repo*
-* **Aaron Samuel** - *CS Engineering Student* - [Aaron Samuel](https://github.com/lionelmessiaaron) - *Contributed to this repo*
-* **Abhishek P Anil** - *CS Engineering Student* - [Abhishek P Anil](https://github.com/Abhishek-P-Anil) - *Contributed to this repo*
-* **Abin Sunny** - *CS Engineering Student* - [Abin Sunny](https://github.com/mrabinsunny) - *Contributed to this repo*
-
-
+For any questions or feedback, please feel free to open an issue on the GitHub repository.
