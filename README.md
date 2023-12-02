@@ -1,6 +1,13 @@
 ## CST201: Data Structures Lab
 
 This repository contains the programs and resources developed during the CST201 Data Structures Lab sessions.
+**Contributors:**
+
+- [Adhil Salim](https://github.com/adhilsalim)
+- [Advaith Manoj](https://github.com/Advaith-dev)
+- [Abhishek P Anil](https://github.com/Abhishek-P-Anil)
+- [Aaron Samuel Mathew](https://github.com/AaronSMathew)
+- [Abin Sunny](https://github.com/mrabinsunny)
 
 ### Purpose
 
