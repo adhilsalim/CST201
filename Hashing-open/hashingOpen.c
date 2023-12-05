@@ -1,3 +1,11 @@
+/*
+This program perform the following operations on a hash table:
+1. Insertion
+2. Deletion
+3. Traversal
+Author: Adhil Salim
+*/
+
 #include <stdio.h>
 #include <stdbool.h>
 #include <stdlib.h>

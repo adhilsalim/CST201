@@ -1,3 +1,10 @@
+/*
+This program perform the following operations on a binary search tree:
+1. Insertion
+2. Deletion
+3. Traversal
+Author: Adhil Salim
+*/
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdbool.h>

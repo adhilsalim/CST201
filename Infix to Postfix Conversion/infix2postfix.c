@@ -1,3 +1,8 @@
+/*
+This program convert an infix expression to postfix expression.
+Author: Adhil Salim
+*/
+
 #include <stdio.h>
 #include <stdbool.h>
 #include <stdlib.h>

@@ -1,3 +1,10 @@
+/*
+This program perform the following operations on a graph:
+1. DFS
+2. BFS
+Author: Adhil Salim
+*/
+
 #include <stdio.h>
 
 int VERTEX = 0;
