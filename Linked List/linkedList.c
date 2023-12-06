@@ -1,3 +1,12 @@
+/*
+This program perform the following operations on a linked list:
+1. Create
+2. Display
+3. Insert
+4. Delete
+Author: Adhil Salim
+*/
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdbool.h>

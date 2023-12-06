@@ -1,3 +1,8 @@
+/*
+This program performs multiplication of two polynomials
+Author: Adhil Salim
+*/
+
 #include <stdio.h>
 
 int POLYNOMIAL_ONE[2][10];

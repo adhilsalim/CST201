@@ -1,3 +1,7 @@
+/*
+This program performs priority queue operations
+Author: Adhil Salim
+*/
 #include <stdio.h>
 #include <stdbool.h>
 

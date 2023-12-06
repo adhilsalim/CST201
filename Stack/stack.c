@@ -1,4 +1,7 @@
-
+/*
+This program performs stack operations
+Author: Adhil Salim
+*/
 #include <stdio.h>
 #include <stdlib.h>
 

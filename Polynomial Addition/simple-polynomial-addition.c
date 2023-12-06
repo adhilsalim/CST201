@@ -1,3 +1,7 @@
+/*
+This program performs addition of two polynomials
+Author: Adhil Salim
+*/
 #include <stdio.h>
 
 int POLYNOMIAL_ONE[2][10];
